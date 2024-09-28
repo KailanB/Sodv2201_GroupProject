@@ -1,0 +1,9 @@
+
+.header {
+
+    background-color: var(--accentColor1);
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
