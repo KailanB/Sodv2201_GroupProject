@@ -38,3 +38,28 @@ p {
     margin: 5px 5px;
     background-color: var(--accentColor2);
 }
+
+.standardButton {
+
+    width: fit-content;
+    height: 30px;
+    padding: 0px 10px;
+    background-color: var(--accentColor2);
+    border: 2px solid var(--accentColor1);
+    border-radius: 18px;
+}
+
+.standardButton:active {
+
+    background-color: var(--accentColor1);
+    border: 2px solid var(--accentColor2);
+}
+
+.standardInput{
+
+    width: 250px;
+    height: 30px;
+    /* margin: 10px; */
+    border: 2px solid var(--accentColor2);
+    border-radius: 10px;
+}
