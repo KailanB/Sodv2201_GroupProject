@@ -4,11 +4,20 @@ import './App.css';
 import Header from './components/Common/Header.component.jsx';
 import Footer from './components/Common/Footer.component.jsx';
 
-import ProgramDiv from './components/ProgramsPage/ProgramDiv.component.jsx';
-import ProgramSearch from './components/ProgramsPage/ProgramSearch.component.jsx';
+import ProgramsPageMain from './components/ProgramsPage/ProgramsPageMain.component.jsx';
 
 import SignUpPage from './components/SignUpPage/SignUpPage.component.jsx';
 
+import ProfileDiv from './components/Profile/ProfileDiv.component.jsx';
+
+import AdminAddCourses from './components/AdminPage/AdminAddCourses.component.jsx';
+import AdminDashboard from './components/AdminPage/AdminDashboard.component.jsx';
+
+
+import LogInPage from './components/LogInPage/LogInPage.component.jsx';
+// <AdminDashboard name="MyNameVariableHere" status="MyStatusAdminHere"/>
+
+//   <ProfileDiv firstName="Tiny" lastName="Teen" id="2532" email="tiny@gmail.com" phone="125-124-2312" birthday="2007-01-01" department="Software Development" program="Diploma" userName="TinyT"/>
 
 function App() {
 
@@ -16,8 +25,10 @@ function App() {
     <div className="mainContent">
 
       <Header title="Home"></Header>
-      <SignUpPage />
       
+      <LogInPage />
+
+
       <Footer></Footer>
 
     </div>
@@ -26,6 +37,8 @@ function App() {
 
 /*
 
+
+<SignUpPage />
 <ProgramSearch />
 <ProgramDiv programTitle="Certificate" term="Fall" startDate="2024-09-03" endDate="2024-12-20" length="6 months" description="this certificate programs offers a fast track into the world of software development." fee="80,000" code="445"/>
 
