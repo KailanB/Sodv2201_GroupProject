@@ -1,4 +1,4 @@
-import './ProgramDiv.style.css';
+import './ProgramsPage.style.css';
 
 const ProgramDiv = (props) => {
 
