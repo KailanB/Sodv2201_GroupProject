@@ -2,16 +2,19 @@
 import React from 'react';
 import './AdminDashboard.style.css'; 
 
-const AdminDashboard = () => {
+const AdminDashboard = (props) => {
+
+  const {name, status } = props;
+
   return (
     <div className="dashboard-container">
       <div className="info-box">
         <h2>Admin Dashboard</h2>
         <div className="info-item">
-          <strong>Name:</strong> Mike
+          <strong>Name:</strong> {name}
         </div>
         <div className="info-item">
-          <strong>Status:</strong> Active
+          <strong>Status:</strong> {status}
         </div>
       </div>
 
