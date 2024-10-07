@@ -5,11 +5,11 @@
     --accentColor2: #9a8cda;
 }
 
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 body {
     background-color: var(--mainContentColor1);
@@ -35,7 +35,7 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.dashboard-container h2 {
     color: var(--accentColor1);
     margin-bottom: 20px;
 }
@@ -46,18 +46,13 @@ h2 {
     margin: 10px 0;
 }
 
-strong {
+/* I found out that styling specified here was going into other pages styling oddly enough... */
+/* so I added the class name before the generic element. */
+/* that way it wasn't styling ALL strong text */
+.dashboard-container strong {
     color: var(--accentColor1); 
 }
 
-.standardInput {
-    width: 70%; 
-    height: 30px;
-    border: 2px solid var(--accentColor2);
-    border-radius: 10px;
-    padding: 5px;
-    transition: border-color 0.3s ease;
-}
 
 .standardInput:focus {
     border-color: var(--accentColor1); 

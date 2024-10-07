@@ -21,7 +21,7 @@
     padding: 20px;
 }
 
-h3 {
+.admin-page h3 {
     color: var(--accentColor1);
     margin-bottom: 20px;
 }
@@ -42,7 +42,10 @@ h3 {
     margin: 10px 0;
 }
 
-label {
+/* I found out that styling specified here was going into other pages styling oddly enough... */
+/* so I added the class name before the generic element. */
+/* that way it wasn't styling ALL labels */
+.admin-page label {
     margin-right: 10px;
     color: var(--accentColor1); 
 }
