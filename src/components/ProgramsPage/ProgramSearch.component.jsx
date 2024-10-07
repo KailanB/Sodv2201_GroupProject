@@ -1,4 +1,4 @@
-import './ProgramSearch.style.css';
+import './ProgramsPage.style.css';
 
 const ProgramSearch = () => {
 
@@ -6,7 +6,7 @@ const ProgramSearch = () => {
 
     return (
 
-        <div className='standardInput'>
+        <div className='programSearch'>
             <input></input>
             <button className='standardButton'>Search</button>
         </div>
