@@ -15,6 +15,7 @@ import AdminDashboard from './components/AdminPage/AdminDashboard.component.jsx'
 
 
 import LogInPage from './components/LogInPage/LogInPage.component.jsx';
+import ContactPage from './components/ContactPage/ContactPage.component.jsx';
 // <AdminDashboard name="MyNameVariableHere" status="MyStatusAdminHere"/>
 
 //   <ProfileDiv firstName="Tiny" lastName="Teen" id="2532" email="tiny@gmail.com" phone="125-124-2312" birthday="2007-01-01" department="Software Development" program="Diploma" userName="TinyT"/>
@@ -24,9 +25,9 @@ function App() {
   return (
     <div className="mainContent">
 
-      <Header title="Home"></Header>
+      <Header title="Contact Page"></Header>
       
-      <LogInPage />
+      <ContactPage />
 
 
       <Footer></Footer>
