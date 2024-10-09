@@ -1,33 +1,35 @@
 import React from 'react';
 import './AdminAddCourses.style.css';
 
-const AdminAddCourses = () => {
+const AdminAddCourses = (props) => {
+
+    const {CourseName, CourseCode, Term, StartDate, EndDate, Department, Program, Description} = props
     return (
         <div className="admin-page">
             <h3>Add a New Course</h3>
             <form>
                 <div className='form-group'>
-                    <label>Course Name:</label>
+                    <label>Course Name: {CourseName}</label>
                     <input type="text" className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>Course Code:</label>
+                    <label>Course Code: {CourseCode}</label>
                     <input type="text" className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>Term:</label>
+                    <label>Term: {Term}</label>
                     <input type="text" className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>Start Date:</label>
+                    <label>Start Date: {StartDate}</label>
                     <input type="date" className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>End Date:</label>
+                    <label>End Date: {EndDate}</label>
                     <input type="date" className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>Department:</label>
+                    <label>Department: {Department}</label>
                     <select className="standardInput" required>
                         <option value="">Select Department</option>
                         <option value="Software Development">Software Development</option>
@@ -37,7 +39,7 @@ const AdminAddCourses = () => {
                     </select>
                 </div>
                 <div className='form-group'>
-                    <label>Program:</label>
+                    <label>Program: {Program}</label>
                     <select className="standardInput" required>
                         <option value="">Select Program</option>
                         <option value="Certificate">Certificate</option>
@@ -47,7 +49,7 @@ const AdminAddCourses = () => {
                     </select>
                 </div>
                 <div className='form-group'>
-                    <label>Description:</label>
+                    <label>Description: {Description}</label>
                     <textarea className="standardInput" rows="4" required></textarea>
                 </div>
                 <input type='submit' value="Add Course" className="standardButton submitButton" />
