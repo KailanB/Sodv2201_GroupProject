@@ -1,5 +1,5 @@
 import './ProgramsPage.style.css';
-import ProgramDiv from './/ProgramDiv.component.jsx';
+import ProgramDiv from './ProgramDiv.component.jsx';
 import ProgramSearch from './ProgramSearch.component.jsx';
 
 
