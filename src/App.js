@@ -1,29 +1,71 @@
+import { Route, Routes } from "react-router-dom";
 import './App.css';
 // import StudentProfile from './components/StudentProfile/StudentProfile.component';
 // import image from './img/BPDF_Happy.png';
-import Header from './components/Common/Header.component.jsx';
-import Footer from './components/Common/Footer.component.jsx';
-
-import ProgramsPageMain from './components/ProgramsPage/ProgramsPageMain.component.jsx';
-
-import SignUpPage from './components/SignUpPage/SignUpPage.component.jsx';
-
-import ProfileDiv from './components/Profile/ProfileDiv.component.jsx';
-
-import AdminAddCourses from './components/AdminPage/AdminAddCourses.component.jsx';
-import AdminDashboard from './components/AdminPage/AdminDashboard.component.jsx';
+// import Header from './components/Common/Header.component.jsx';
+// import Footer from './components/Common/Footer.component.jsx';
 
 
-import LogInPage from './components/LogInPage/LogInPage.component.jsx';
-import ContactPage from './components/ContactPage/ContactPage.component.jsx';
+
+
+
+// import ContactPage from './components/ContactPage/ContactPage.component.jsx';
 // <AdminDashboard name="MyNameVariableHere" status="MyStatusAdminHere"/>
 
-//   <ProfileDiv firstName="Tiny" lastName="Teen" id="2532" email="tiny@gmail.com" phone="125-124-2312" birthday="2007-01-01" department="Software Development" program="Diploma" userName="TinyT"/>
+import Home from './routes/Home/Home';
+import View from "./view/View";
+import ContactPage from "./routes/ContactPage/ContactPage.component";
+import ProgramsPageMain from './routes/ProgramsPage/ProgramsPageMain.component.jsx';
+
+import LogInPage from './routes/LogInPage/LogInPage.component.jsx';
+import SignUpPage from './routes/SignUpPage/SignUpPage.component.jsx';
+
+import ProfilePage from './routes/Profile/ProfilePage.component.jsx';
+
+import AdminAddCourses from './routes/AdminAddCourses/AdminAddCourses.component.jsx';
+import AdminDashboard from './routes/AdminDashboard/AdminDashboard.component.jsx';
+import ViewRegisteredStudents from './routes/ViewRegisteredStudents/ViewRegisteredStudents.component.jsx';
+
+
+
+
 
 function App() {
 
   return (
-    <div className="mainContent">
+
+    <div>
+      <Routes>
+        <Route element={<View />}>
+        
+          {/* Paths here */}
+          <Route index element={<Home />} />
+          <Route path="/contact" element={<ContactPage />} />
+
+          <Route path="/programsPage" element={<ProgramsPageMain />} />
+
+          <Route path="/logInPage" element={<LogInPage />} />
+          <Route path="/signUpPage" element={<SignUpPage />} />
+
+          <Route path="/profilePage" element={<ProfilePage />} />
+
+
+          <Route path="/adminAddCourses" element={<AdminAddCourses />} />
+          <Route path="/adminDashboard" element={<AdminDashboard />} />
+          <Route path="/viewRegisteredStudents" element={<ViewRegisteredStudents />} />
+
+
+        </Route>
+      </Routes>
+    </div>
+    
+  );
+}
+
+export default App;
+/*
+
+<div className="mainContent">
 
       <Header title="Contact Page"></Header>
       
@@ -33,8 +75,9 @@ function App() {
       <Footer></Footer>
 
     </div>
-  );
-}
+
+*/
+
 
 /*
 
@@ -46,4 +89,3 @@ function App() {
 
 */
 
-export default App;
