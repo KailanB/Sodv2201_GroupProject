@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './navBar.style.css';
 
 const NavBarBasic = (props) => {
@@ -7,13 +9,15 @@ const NavBarBasic = (props) => {
     return (
 
         <div className="navBar">
-            <p>Navigation bar</p>
-            <p>this will later be set to invisible and we can create a menu with javascript to open and close</p>
             <ul>
-                <li>{home}</li>
-                <li>programs</li>
-                <li>Sign up</li>
-                <li>Log in</li>
+                <li><Link to="/contact">Contact Us</Link></li>
+                <li><Link to="/programsPage">Programs</Link></li>
+                <li><Link to="/signUpPage">Sign up</Link></li>
+                <li><Link to="/logInPage">Log in</Link></li>
+                <li><Link to="/profilePage">Profile</Link></li>
+                <li><Link to="/viewRegisteredStudents">View Registered Students</Link></li>
+                <li><Link to="/adminAddCourses">Add Courses</Link></li>
+                <li><Link to="/adminDashboard">Dashboard</Link></li>
             </ul>
 
         </div>
