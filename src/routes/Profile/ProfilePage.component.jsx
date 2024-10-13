@@ -9,28 +9,31 @@ function ProfilePage() {
 
     useEffect(() => {
 
-        let name = "userEmail=";
+        let cookieName = "userEmail=";
     
         let decodedCookie = decodeURIComponent(document.cookie);
-        let cookieValues = decodedCookie.split(";");
+        
+        // let cookieValues = decodedCookie.split(";");
         let myEmail = '';
-        for (let i = 0; i < cookieValues.length ; i++)
-        {
+        myEmail = decodedCookie.substring(cookieName.length);
+        // alert(myEmail);
+        // for (let i = 0; i < cookieValues.length ; i++)
+        // {
             
-            let c = cookieValues[i];
-            while (c.charAt(0) === ' ')
-            {
-                c = c.substring(1);
+        //     let c = cookieValues[i];
+        //     while (c.charAt(0) === ' ')
+        //     {
+        //         c = c.substring(1);
                 
-            }
-            if (c.indexOf(name) === 0)
-            {
+        //     }
+        //     if (c.indexOf(name) === 0)
+        //     {
                 
-                myEmail = c.substring(name.length, c.length);
-            }
+        //         myEmail = c.substring(name.length, c.length);
+        //     }
             
 
-        }
+        // }
 
         const savedUsers = JSON.parse(localStorage.getItem('users'));
         let userExists = savedUsers.find(savedUser => savedUser.email.toLowerCase() === myEmail.toLowerCase());
