@@ -15,7 +15,8 @@ const SignUpForm = ({onAddUser}) => {
         program: '',
         term: '',
         userName: '',
-        password: ''
+        password: '',
+        status: 'Student'
     });
 
     const handleChange = (e) => {
@@ -47,7 +48,7 @@ const SignUpForm = ({onAddUser}) => {
             program: '',
             term: '',
             userName: '',
-            password: ''
+            password: '',
         });
     }
 
