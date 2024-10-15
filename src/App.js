@@ -23,9 +23,12 @@ import SignUpPage from './routes/SignUpPage/SignUpPage.component.jsx';
 import ProfilePage from './routes/Profile/ProfilePage.component.jsx';
 
 import AdminAddCourses from './routes/AdminAddCourses/AdminAddCourses.component.jsx';
+import AdminEditCourses from './routes/AdminEditCourses/AdminEditCourses.component.jsx';
 import AdminDashboard from './routes/AdminDashboard/AdminDashboard.component.jsx';
 import AdminMessagesPage from './routes/AdminMessages/AdminMessagesPage.component.jsx';
 import ViewRegisteredStudents from './routes/ViewRegisteredStudents/ViewRegisteredStudents.component.jsx';
+import CoursesPage from "./routes/CoursesPageNew/CoursesPage.component.jsx";
+
 
 
 
@@ -52,6 +55,8 @@ function App() {
 
 
           <Route path="/adminAddCourses" element={<AdminAddCourses />} />
+          <Route path="/coursesPage" element={<CoursesPage />} />
+          <Route path="/adminEditCourses" element={<AdminEditCourses />} />
           <Route path="/adminDashboard" element={<AdminDashboard />} />
           <Route path="/adminMessagesPage" element={<AdminMessagesPage />} />
           <Route path="/viewRegisteredStudents" element={<ViewRegisteredStudents />} />

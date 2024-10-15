@@ -11,16 +11,16 @@ const CoursesPage = () => {
     const [selectedCourse, setSelectedCourse] = useState(null);
     
     // State for adding a new course
-    const [newCourse, setNewCourse] = useState({
-        name: '',
-        code: '',
-        term: '',
-        startDate: '',
-        endDate: '',
-        department: '',
-        program: '',
-        description: ''
-    });
+    // const [newCourse, setNewCourse] = useState({
+    //     name: '',
+    //     code: '',
+    //     term: '',
+    //     startDate: '',
+    //     endDate: '',
+    //     department: '',
+    //     program: '',
+    //     description: ''
+    // });
 
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
@@ -72,8 +72,8 @@ const CoursesPage = () => {
                 <button className="standardButton">View Registered Courses</button>
             </div>
 
-            {/* New Course Form */}
-            <div className="new-course-form">
+            {/*  */}
+            {/* <div className="new-course-form">
                 <h4>Add New Course</h4>
                 <input type="text" placeholder="Course Name" value={newCourse.name} onChange={(e) => setNewCourse({ ...newCourse, name: e.target.value })} />
                 <input type="text" placeholder="Course Code" value={newCourse.code} onChange={(e) => setNewCourse({ ...newCourse, code: e.target.value })} />
@@ -83,7 +83,7 @@ const CoursesPage = () => {
                 <input type="text" placeholder="Department" value={newCourse.department} onChange={(e) => setNewCourse({ ...newCourse, department: e.target.value })} />
                 <input type="text" placeholder="Program" value={newCourse.program} onChange={(e) => setNewCourse({ ...newCourse, program: e.target.value })} />
                 <textarea placeholder="Description" value={newCourse.description} onChange={(e) => setNewCourse({ ...newCourse, description: e.target.value })} />
-            </div>
+            </div> */}
 
             <div className="course-list">
                 {courses.filter(course => 
@@ -94,11 +94,12 @@ const CoursesPage = () => {
                         <h4>{course.name}</h4>
                         <p>{course.code}</p>
                         <p>{course.term}</p>
+
                     </div>
                 ))}
             </div>
 
-            {selectedCourse && (
+            {/* {selectedCourse && (
                 <div className="course-details-modal">
                     <h4>Course Details</h4>
                     <p><strong>Name:</strong> {selectedCourse.name}</p>
@@ -112,7 +113,7 @@ const CoursesPage = () => {
                     <button className="standardButton">Register</button>
                     <button className="standardButton" onClick={() => setSelectedCourse(null)}>Close</button>
                 </div>
-            )}
+            )} */}
         </div>
     );
 };
