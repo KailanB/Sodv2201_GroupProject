@@ -4,6 +4,8 @@ const ProfileDiv = (props) => {
 
     const {firstName, lastName, id, email, phone, birthday, department, program, userName} = props
 
+    
+
     return (
 
         <div className="profileDiv">
