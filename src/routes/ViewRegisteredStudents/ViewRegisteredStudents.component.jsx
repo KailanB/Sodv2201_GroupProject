@@ -7,7 +7,7 @@ const ViewRegisteredStudents = () => {
     const studentTypes = [
         { type: "Undergraduate", link: "/programsPage" },
         { type: "Certificate", link: "/programsPage" },
-        { type: "Diploma", link: "/programsPage" },
+        { type: "Diploma", link: "/programs-Page" },
         { type: "Post-Diploma", link: "/programsPage" },
     ];
 
