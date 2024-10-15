@@ -5,10 +5,10 @@ const ViewRegisteredStudents = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const studentTypes = [
-        { type: "Undergraduate", link: "/all-programs" },
-        { type: "Certificate", link: "/all-programs" },
-        { type: "Diploma", link: "/all-programs" },
-        { type: "Post-Diploma", link: "/all-programs" },
+        { type: "Undergraduate", link: "/programsPage" },
+        { type: "Certificate", link: "/programsPage" },
+        { type: "Diploma", link: "/programsPage" },
+        { type: "Post-Diploma", link: "/programsPage" },
     ];
 
     return (
