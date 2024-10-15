@@ -56,8 +56,8 @@ const CoursesPage = () => {
 
     <div className="course-list">
                     {courses.filter(course => 
-                        course.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                        course.code.toLowerCase().includes(searchTerm.toLowerCase())
+                        course.CourseName.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                        course.CourseCode.toLowerCase().includes(searchTerm.toLowerCase())
                     ).map((course, index) => (
                             <div key = {index }>
                             <CourseDiv Course = {course}/>
