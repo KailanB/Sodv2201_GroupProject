@@ -24,6 +24,7 @@ import ProfilePage from './routes/Profile/ProfilePage.component.jsx';
 
 import AdminAddCourses from './routes/AdminAddCourses/AdminAddCourses.component.jsx';
 import AdminDashboard from './routes/AdminDashboard/AdminDashboard.component.jsx';
+import AdminMessagesPage from './routes/AdminMessages/AdminMessagesPage.component.jsx';
 import ViewRegisteredStudents from './routes/ViewRegisteredStudents/ViewRegisteredStudents.component.jsx';
 
 
@@ -52,6 +53,7 @@ function App() {
 
           <Route path="/adminAddCourses" element={<AdminAddCourses />} />
           <Route path="/adminDashboard" element={<AdminDashboard />} />
+          <Route path="/adminMessagesPage" element={<AdminMessagesPage />} />
           <Route path="/viewRegisteredStudents" element={<ViewRegisteredStudents />} />
 
 
