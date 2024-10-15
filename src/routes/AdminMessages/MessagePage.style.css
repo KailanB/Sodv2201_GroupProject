@@ -1,0 +1,12 @@
+
+.messageDiv {
+
+    background-color: var(--mainContentColor2);
+    padding: 10px;
+    border: 2px solid var(--accentColor1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    width: min(800px, 90vw);
+    box-shadow: 0 5px 10px rgba(0 0 0 / .5);
+}
