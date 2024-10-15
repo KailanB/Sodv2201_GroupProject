@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--mainContentColor1);
+    min-height: 100vh;
+}
+
+.home-header {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--accentColor1);
+}
+
+.home-header h1 {
+    font-size: 2.5rem; 
+}
+
+.home-header p {
+    font-size: 1.2rem; 
+    color: var(--accentColor2);
+}
+
+.mission-section, .departments-section, .features-section {
+    margin: 20px 0;
+    width: 80%;
+    background-color: var(--mainContentColor2);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mission-section h2, 
+.departments-section h3, 
+.features-section h3 {
+    color: var(--accentColor1);
+}
+
+.mission-section p, 
+.departments-section ul,
+.features-section ul {
+    color: #333; 
+}
+
+.departments-section ul,
+.features-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.departments-section li,
+.features-section li {
+    margin: 10px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--accentColor2); 
+}
+
+.cta-buttons {
+    margin: 20px 0;
+}
+
+/* over lapping CSS here */
+/* .standardButton {
+    background-color: var(--accentColor1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+} */
+
+.standardButton:hover {
+    background-color: var(--accentColor2);
+}
+
+.standardButton:focus {
+    outline: none;
+}
