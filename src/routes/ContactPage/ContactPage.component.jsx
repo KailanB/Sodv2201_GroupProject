@@ -43,7 +43,6 @@ const ContactPage = () => {
         //     savedMessages = [];
         // }
 
-
         // pull local storage of messages
         const savedMessages = JSON.parse(localStorage.getItem('messages')) || [];
         //if storage exists
