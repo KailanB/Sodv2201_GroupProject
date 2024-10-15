@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AdminAddCourses.style.css';
+import '../../AdminCourseManager.js';
 
 const AdminAddCourses = ({ onAddCourse }) => {
     const [course, setCourse] = useState({
@@ -21,9 +22,23 @@ const AdminAddCourses = ({ onAddCourse }) => {
         }));
     };
 
+    const handleAddCourse = (newCourse) => {
+
+        // this might have issues may need to re-write it.
+        const allCourses = JSON.parse(localStorage.getItem('courses')) || [];
+        
+        allCourses.push(newCourse);
+        localStorage.setItem('courses', JSON.stringify(allCourses));
+        // alert(allCourses[0].CourseName);
+        
+
+        // I don't think we need this one
+        setCourse(newCourse);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        onAddCourse(course); // Sending data to AdminCourseManager component
+        handleAddCourse(course); // Sending data to AdminCourseManager component
         setCourse({
             CourseName: '',
             CourseCode: '',
