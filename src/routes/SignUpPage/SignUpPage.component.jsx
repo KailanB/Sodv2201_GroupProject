@@ -7,6 +7,7 @@ import UserList from './UserList.component.jsx';
 const SignUpPage = () => {
 
 
+    // localStorage.removeItem('users');
 
     const[users, setUsers] = useState([]);
 
@@ -42,6 +43,8 @@ const SignUpPage = () => {
         // if no such user exists we can go ahead and add the user to our storage
         if(!userExists)
         {
+            // create new unqiue studentId for new user
+            user.studentId = Date.now();
             user.email.toLowerCase();
             setUsers((currentUserSet => [...currentUserSet, user]));
         }

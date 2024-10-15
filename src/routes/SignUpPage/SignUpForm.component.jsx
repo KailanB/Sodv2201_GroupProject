@@ -4,6 +4,7 @@ import './SignUpPage.style.css';
 const SignUpForm = ({onAddUser}) => {
 
     // const {Title} = props;
+    
 
     const[formData, setFormData] = useState({
         firstName: '',
@@ -16,11 +17,14 @@ const SignUpForm = ({onAddUser}) => {
         term: '',
         userName: '',
         password: '',
-        status: 'Student'
+        status: 'Student',
+        studentId: '',
+        courses: []
     });
 
     const handleChange = (e) => {
 
+        
         const {name, value} = e.target;
         setFormData({
             ...formData, 
@@ -49,6 +53,9 @@ const SignUpForm = ({onAddUser}) => {
             term: '',
             userName: '',
             password: '',
+            status: 'Student',
+            studentId: '',
+            courses: []
         });
     }
 
