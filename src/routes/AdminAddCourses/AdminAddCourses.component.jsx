@@ -1,58 +1,88 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AdminAddCourses.style.css';
 
-const AdminAddCourses = (props) => {
+const AdminAddCourses = ({ onAddCourse }) => {
+    const [course, setCourse] = useState({
+        CourseName: '',
+        CourseCode: '',
+        Term: '',
+        StartDate: '',
+        EndDate: '',
+        Department: '',
+        Program: '',
+        Description: ''
+    });
 
-    const {CourseName, CourseCode, Term, StartDate, EndDate, Department, Program, Description} = props
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCourse((prevCourse) => ({
+            ...prevCourse,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onAddCourse(course); // Sending data to AdminCourseManager component
+        setCourse({
+            CourseName: '',
+            CourseCode: '',
+            Term: '',
+            StartDate: '',
+            EndDate: '',
+            Department: '',
+            Program: '',
+            Description: ''
+        }); // Clear form after submission
+    };
+
     return (
         <div className="admin-page">
             <h3>Add a New Course</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className='form-group'>
-                    <label>Course Name: {CourseName}</label>
-                    <input type="text" className="standardInput" required />
+                    <label>Course Name:</label>
+                    <input type="text" name="CourseName" value={course.CourseName} onChange={handleChange} className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>Course Code: {CourseCode}</label>
-                    <input type="text" className="standardInput" required />
+                    <label>Course Code:</label>
+                    <input type="text" name="CourseCode" value={course.CourseCode} onChange={handleChange} className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>Term: {Term}</label>
-                    <input type="text" className="standardInput" required />
+                    <label>Term:</label>
+                    <input type="text" name="Term" value={course.Term} onChange={handleChange} className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>Start Date: {StartDate}</label>
-                    <input type="date" className="standardInput" required />
+                    <label>Start Date:</label>
+                    <input type="date" name="StartDate" value={course.StartDate} onChange={handleChange} className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>End Date: {EndDate}</label>
-                    <input type="date" className="standardInput" required />
+                    <label>End Date:</label>
+                    <input type="date" name="EndDate" value={course.EndDate} onChange={handleChange} className="standardInput" required />
                 </div>
                 <div className='form-group'>
-                    <label>Department: {Department}</label>
-                    <select className="standardInput" required>
+                    <label>Department:</label>
+                    <select name="Department" value={course.Department} onChange={handleChange} className="standardInput" required>
                         <option value="">Select Department</option>
                         <option value="Software Development">Software Development</option>
                         <option value="Nursing">Engineering</option>
                         <option value="Business">Business</option>
-                        
                     </select>
                 </div>
                 <div className='form-group'>
-                    <label>Program: {Program}</label>
-                    <select className="standardInput" required>
+                    <label>Program:</label>
+                    <select name="Program" value={course.Program} onChange={handleChange} className="standardInput" required>
                         <option value="">Select Program</option>
                         <option value="Certificate">Certificate</option>
                         <option value="Diploma">Diploma</option>
                         <option value="Post-Diploma">Post-Diploma</option>
-                        
                     </select>
                 </div>
                 <div className='form-group'>
-                    <label>Description: {Description}</label>
-                    <textarea className="standardInput" rows="4" required></textarea>
+                    <label>Description:</label>
+                    <textarea name="Description" value={course.Description} onChange={handleChange} className="standardInput" rows="4" required></textarea>
                 </div>
-                <input type='submit' value="Add Course" className="standardButton submitButton" />
+                <input type="submit" value="Add Course" className="standardButton submitButton" />
             </form>
         </div>
     );
