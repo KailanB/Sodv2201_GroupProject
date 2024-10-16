@@ -22,7 +22,7 @@ const AdminEditCourses = ({ course, onEditCourse }) => {
     };
 
     return (
-        <div className="admin-page">
+        <div className="unique-page">
             <h3>Edit Course</h3>
             <form onSubmit={handleSubmit}>
                 <div className='form-group'>
