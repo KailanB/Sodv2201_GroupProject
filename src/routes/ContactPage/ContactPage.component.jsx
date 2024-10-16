@@ -78,7 +78,7 @@ const ContactPage = () => {
                 </div>
 
                 {/* Right Box - Contact Form */}
-                <form className="form-group" action="/submit" method="POST" onSubmit={handleSubmit}>
+                <form className="new-group" action="/submit" method="POST" onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="fullName">Full Name:</label>
                         <input 
