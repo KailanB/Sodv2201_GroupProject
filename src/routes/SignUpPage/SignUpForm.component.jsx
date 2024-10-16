@@ -57,6 +57,7 @@ const SignUpForm = ({onAddUser}) => {
             studentId: '',
             courses: []
         });
+        window.location.href = "/logInPage";
     }
 
 
