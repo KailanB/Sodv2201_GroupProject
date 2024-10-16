@@ -11,48 +11,49 @@
     box-sizing: border-box;
 }
 
-.admin-page {
+.unique-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh; 
+    width:100%;
     background-color: var(--mainContentColor1);
     padding: 20px;
 }
 
-.admin-page h3 {
+.unique-page h3 {
     color: var(--accentColor1);
     margin-bottom: 20px;
 }
 
-/* .form-group {
+ .form-group {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     border-radius: 15px;
-    width: 400px; /* Fixed width for the form */
-    /* background-color: var(--mainContentColor2);
+    width: 350px; /* Fixed width for the form */
+    background-color: var(--mainContentColor2);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-} */ 
+} 
 
 .form-group {
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 /* I found out that styling specified here was going into other pages styling oddly enough... */
 /* so I added the class name before the generic element. */
 /* that way it wasn't styling ALL labels */
-.admin-page label {
-    margin-right: 10px;
+.unique-page label {
+    margin-left: 10px;
     color: var(--accentColor1); 
 }
 
 .standardInput {
-    width: 70%; 
-    height: 30px;
+    width: 40%; 
+    height: 20px;
     border: 2px solid var(--accentColor2);
     border-radius: 10px;
     padding: 5px;
