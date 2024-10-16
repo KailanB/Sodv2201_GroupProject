@@ -60,10 +60,10 @@ const ContactPage = () => {
             <div className="contact-container">
                 {/* Left Box */}
                 <div className="contact-info">
-                    <h4>Get in Touch</h4>
-                    <p>Email: bvc@gmail.com</p>
-                    <p>Phone: (123) 456-7890</p>
-                    <p>Or Contact Us Via:</p>
+                    <h4>Get in Touch</h4><br></br>
+                    <p>Email: bvc@gmail.com</p><br></br>
+                    <p>Phone: (123) 456-7890</p><br></br>
+                    <p>Or Contact Us Via:</p><br></br>
                     <div className="social-icons">
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faFacebook} size="2x" />
