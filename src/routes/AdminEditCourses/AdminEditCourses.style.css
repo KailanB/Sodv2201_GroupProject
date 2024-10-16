@@ -11,7 +11,7 @@
     box-sizing: border-box;
 } */
 
-/* .admin-page {
+.unique-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,12 +19,12 @@
     min-height: 100vh; 
     background-color: var(--mainContentColor1);
     padding: 20px;
-} */
+}
 
 /* I found out that styling specified here was going into other pages styling oddly enough... */
 /* so I added the class name before the generic element. */
 /* that way it wasn't styling ALL h3's */
-.admin-page h3 {
+.unique-page h3 {
     color: var(--accentColor1);
     margin-bottom: 20px;
 }
