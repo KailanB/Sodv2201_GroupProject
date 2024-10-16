@@ -1,8 +1,22 @@
-import React, { useState } from 'react';
+import  { React, useState, useEffect } from 'react';
 import './ViewRegisteredStudents.style.css';
+import RegisteredStudentsDiv from './RegisteredStudentsDiv.component.jsx';
 
 const ViewRegisteredStudents = () => {
     const [searchTerm, setSearchTerm] = useState("");
+
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+        const savedUsers = JSON.parse(localStorage.getItem('users'));
+        if(savedUsers)
+        {
+            savedUsers.filter((student) => {
+                student.status.includes("Student")
+            });
+            setStudents(savedUsers);
+        }
+    }, []);
 
     const studentTypes = [
         { type: "Undergraduate", link: "/programsPage" },
@@ -52,6 +66,25 @@ const ViewRegisteredStudents = () => {
                     </div>
                 </div>
             </div>
+            <div className="course-list">
+                {students.filter(student => 
+                student.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                student.lastName.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                student.studentId.toString().toLowerCase().includes(searchTerm.toLowerCase()) || 
+                student.email.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                student.phone.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                student.birthday.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                student.department.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                student.program.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                student.userName.toLowerCase().includes(searchTerm.toLowerCase())
+                ).map((student, index) => (
+                    <div key = {index }>
+                        <RegisteredStudentsDiv Student = {student}/>
+                        <br />
+                    </div>
+                ))}
+            </div>
+
         </div>
     );
 };
