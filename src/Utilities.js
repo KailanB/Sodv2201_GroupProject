@@ -29,6 +29,21 @@ export const GetCookieByName = (name) =>
     return cookieVal;
 };
 
+export const getData = (dataName) => 
+{
+    const data = JSON.parse(localStorage.getItem(dataName));
+    if(data)
+    {
+        return data
+       
+    }
+    else
+    {
+        return [];
+    }
+
+};
+
         
         
         // myEmail = decodedCookie.substring(cookieName.length);

@@ -29,6 +29,8 @@ import AdminMessagesPage from './routes/AdminMessages/AdminMessagesPage.componen
 import ViewRegisteredStudents from './routes/ViewRegisteredStudents/ViewRegisteredStudents.component.jsx';
 import CoursesPage from "./routes/CoursesPageNew/CoursesPage.component.jsx";
 
+import StudentDashboard from './routes/StudentDashboard/StudentDashboard.component.jsx';
+
 
 
 
@@ -52,7 +54,7 @@ function App() {
           <Route path="/signUpPage" element={<SignUpPage />} />
 
           <Route path="/profilePage" element={<ProfilePage />} />
-
+          <Route path="/studentDahsboard" element={<StudentDashboard />} />
 
           <Route path="/adminAddCourses" element={<AdminAddCourses />} />
           <Route path="/coursesPage" element={<CoursesPage />} />
