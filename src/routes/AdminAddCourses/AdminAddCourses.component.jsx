@@ -52,7 +52,7 @@ const AdminAddCourses = ({ onAddCourse }) => {
     };
 
     return (
-        <div className="admin-page">
+        <div className="unique-page">
             <h3>Add a New Course</h3>
             <form onSubmit={handleSubmit}>
                 <div className='form-group'>
