@@ -3,28 +3,30 @@ import './ProgramsPage.style.css';
 const ProgramDiv = (props) => {
 
 
-    const {programTitle, term, startDate, endDate, length, description, fee, code} = props;
+    const {program} = props;
 
     const NavigateToProgramCourses = (program) =>
     {
         window.location.href = "/Courses/" + program;
     }
 
+   
+
 
     return (
 
         <div className="programDiv" onClick={() => {
-            NavigateToProgramCourses(code)}}>
-            <h2>{programTitle}</h2>
-            <p>Term: {term}</p>
-            <p>Start Date: {startDate}</p>
-            <p>End Date: {endDate}</p>
+            NavigateToProgramCourses(program.code)}}>
+            <h2>{program.department}</h2>
+            <p>{program.program}</p>
+            <p>Term: {program.term}</p>
+            <p>Start Date: {program.startDate}</p>
+            <p>End Date: {program.endDate}</p>
             <br />
-            <p>Program Length: {length}</p>
-            <p>Description: {description}</p>
+            <p>Program Length: {program.length}</p>
             <br />
-            <p>Fees: ${fee}</p>
-            <p>Program code: {code}</p>
+            <p>Fees: ${program.fee}</p>
+            <p>Program code: {program.code}</p>
         </div>
 
     );
