@@ -6,14 +6,15 @@ import { GetCookieByName } from '../../Utilities.js';
 
 
 
-
-
 const CoursesPage = () => {
 
     const [courses, setCourses] = useState([]);
     const[user, setUser] = useState([]);
 
-    const [programs, setPrograms] = useState([]);
+    // this seems to work better to pull from local storage 
+    // setting use state to pull from local storage
+    // https://www.reddit.com/r/react/comments/xqbky5/usestate_overwrites_localstorage/
+    const [programs, setPrograms] = useState(() => JSON.parse(localStorage.getItem("programs")) || []);
 
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -21,29 +22,18 @@ const CoursesPage = () => {
     useEffect(() => { 
 
         
+        // const savedPrograms = JSON.parse(localStorage.getItem("programs")) || [];
+        
+        // try using spread operator ... to see if it helps with the order of things    
+        // setPrograms(...savedPrograms);       
 
     }, []);
 
-    // useEffect(() => { 
-
-    //     const savedCourses = JSON.parse(localStorage.getItem("courses"));
-    //     if (savedCourses) {
-    //         setCourses(savedCourses);
-    //     }
-
-    // }, []);
-
-    useEffect(() => { 
-
-        
-        const savedPrograms = JSON.parse(localStorage.getItem("programs"));
-
-        // try using spread operator ... to see if it helps with the order of things    
-        setPrograms(...savedPrograms);
+    useEffect(() => {
 
         const savedCourses = [];
-        
-        savedPrograms.forEach(program => 
+        // alert(programs[0].courses[0].CourseCode);
+        programs.forEach(program => 
             program.courses.forEach(course =>
                 savedCourses.push(course)  
             )
@@ -66,8 +56,7 @@ const CoursesPage = () => {
 
         setCourses(savedCourses);
 
-
-    }, []);
+    }, [programs]);
 
 
     

@@ -12,8 +12,9 @@ function View() {
     // add program dummy data with codes
     useEffect(() => {
 
-        const allPrograms = localStorage.getItem('programs');
-        
+        const allPrograms = localStorage.getItem('programs') || [];
+        // console.log(allPrograms.length);
+        // console.log(allPrograms);
         if (allPrograms.length < 1)
         {
             // create an indivudla file for importing data to keep the files clean
