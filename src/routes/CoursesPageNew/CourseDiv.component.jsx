@@ -6,7 +6,8 @@ const CourseDiv = (props) => {
 
     
     // const {fullName, email, message} = props;
-    const {Course} = (props);
+    const {Course, RegisterCourse} = (props);
+
 
     return (
 
@@ -21,7 +22,9 @@ const CourseDiv = (props) => {
             <p><strong>Department:</strong> {Course.Department}</p>
             <p><strong>Program:</strong> {Course.Program}</p>
             <p><strong>Description:</strong> {Course.Description}</p>
-            <button className="standardButton">Register</button>
+            <button className="standardButton" onClick={() => {
+                RegisterCourse(Course.CourseCode)}}
+                >Register</button>
                 
         </div>
 
