@@ -16,7 +16,6 @@ function View() {
         
         if (allPrograms.length < 1)
         {
-            alert('test');
             let dummyData = [
                 {department: "Software Development", program: "Diploma", term: "fall", startDate: "September", endDate: "December", legnth: "6 months", description: "This is programming", fee: "50,000", code: "23523", courses: []},
                 {department: "Software Development", program: "Certificate", term: "fall", startDate: "September", endDate: "December", legnth: "6 months", description: "This is programming basics", fee: "30,000", code: "23524", courses: []},
@@ -25,7 +24,34 @@ function View() {
             ];
             localStorage.setItem('programs', JSON.stringify(dummyData));
         }
-        
+
+        // create dummy admin account
+        const allUsers = JSON.parse(localStorage.getItem('users'));
+        let userExists = allUsers.find(savedUser => savedUser.email.toLowerCase() === "ttadmin@gmail.com")
+        // if no such user exists we can go ahead and add the user to our storage
+        if(!userExists)
+        {
+
+            let user = {
+                firstName: 'Teeny',
+                lastName: 'Tine',
+                email: 'ttadmin@gmail.com',
+                phone: '123-456-1234',
+                birthday: '1900-10-10',
+                department: 'IT',
+                program: '',
+                term: '',
+                userName: 'TT',
+                password: '123',
+                status: 'Admin',
+                studentId: '',
+                courses: []
+            }
+            allUsers.push(user);
+            localStorage.setItem('users', JSON.stringify(allUsers));
+
+        }
+        // else notify the user and DO not add a duplicate email.       
     
 
     }, []);
