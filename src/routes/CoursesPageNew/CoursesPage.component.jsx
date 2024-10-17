@@ -38,7 +38,8 @@ const CoursesPage = () => {
         
         const savedPrograms = JSON.parse(localStorage.getItem("programs"));
 
-        setPrograms(savedPrograms);
+        // try using spread operator ... to see if it helps with the order of things    
+        setPrograms(...savedPrograms);
 
         const savedCourses = [];
         

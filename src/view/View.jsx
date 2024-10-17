@@ -16,6 +16,8 @@ function View() {
         
         if (allPrograms.length < 1)
         {
+            // create an indivudla file for importing data to keep the files clean
+            // create dummy data courses min 10
             let dummyData = [
                 {department: "Software Development", program: "Diploma", term: "fall", startDate: "September", endDate: "December", legnth: "6 months", description: "This is programming", fee: "50,000", code: "23523", courses: []},
                 {department: "Software Development", program: "Certificate", term: "fall", startDate: "September", endDate: "December", legnth: "6 months", description: "This is programming basics", fee: "30,000", code: "23524", courses: []},
@@ -27,8 +29,12 @@ function View() {
 
         // create dummy admin account
         const allUsers = JSON.parse(localStorage.getItem('users'));
+        // dummy data for admin is good
         let userExists = allUsers.find(savedUser => savedUser.email.toLowerCase() === "ttadmin@gmail.com")
         // if no such user exists we can go ahead and add the user to our storage
+
+        // separate users from admin users 
+        // or we could add privilege access for admins
         if(!userExists)
         {
 
