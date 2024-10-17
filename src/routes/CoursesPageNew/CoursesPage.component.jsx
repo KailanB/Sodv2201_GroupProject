@@ -11,6 +11,7 @@ import { GetCookieByName } from '../../Utilities.js';
 const CoursesPage = () => {
 
     const [courses, setCourses] = useState([]);
+    const[user, setUser] = useState([]);
 
     const [programs, setPrograms] = useState([]);
 
@@ -34,6 +35,7 @@ const CoursesPage = () => {
 
     useEffect(() => { 
 
+        
         const savedPrograms = JSON.parse(localStorage.getItem("programs"));
 
         setPrograms(savedPrograms);
@@ -42,10 +44,24 @@ const CoursesPage = () => {
         
         savedPrograms.forEach(program => 
             program.courses.forEach(course =>
-                
-                savedCourses.push(course)
+                savedCourses.push(course)  
             )
         )
+        
+
+        let userEmail = GetCookieByName("userEmail=")
+        const savedUsers = JSON.parse(localStorage.getItem('users'));
+        let userExists = savedUsers.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());
+        
+        console.log("after getting user data");
+        if(userExists)
+        {
+            setUser(userExists); 
+            
+            // if user logged in is a student filter to only display courses available for the users department and program
+            
+            
+        }
 
         setCourses(savedCourses);
 
@@ -53,36 +69,27 @@ const CoursesPage = () => {
     }, []);
 
 
-    const[user, setUser] = useState([]);
+    
 
     useEffect(() => {
 
         
-        let userEmail = GetCookieByName("userEmail=")
-        const savedUsers = JSON.parse(localStorage.getItem('users'));
-        let userExists = savedUsers.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());
-        
-        if(userExists)
+        if(user.status === "Student")
         {
-            //alert(userExists.department + " " + userExists.program)
-            setUser(userExists); 
+            // WHY is this executing first??? 
+            // I don't understand what is going on here
+            const savedCourses = courses.filter(course => (
+            course.Department.toLowerCase() === user.department.toLowerCase()) &&
+            (course.Program.toLowerCase() === user.program.toLowerCase())
+            )
+            // set courses to filtered options for displaying
 
-            // if user logged in is a student filter to only display courses available for the users department and program
-            if(userExists.status === "Student")
-            {
-                const userCourses = courses.filter(course => (
-                course.Department.toLowerCase() === user.department.toLowerCase()) &&
-                (course.Program.toLowerCase() === user.program.toLowerCase())
-                )
-                // set courses to filtered options for displaying
-                setCourses(userCourses);
-            }
-            
+            setCourses(savedCourses);
         }
 
 
 
-    }, []);
+    }, [user]);
     // const [messages, setMessages]= useState([]);
 
     // useEffect(() => {
@@ -95,6 +102,55 @@ const CoursesPage = () => {
     //     }
 
     // }, []);
+
+    const RegisterCourse = (code) => {
+
+        
+        if(user.courses.length < 5)
+        {
+
+            // check if user is registered for courses and if so
+            // if they are already registered for this course by searching their course array for a match
+            if((user.courses.length > 0) && user.courses.some(course => course.CourseCode === code))
+            {
+                alert("Already registered for this course");
+            }
+            else
+            {
+                // if not registered for the course
+                // find the course via the code
+                const course = courses.find(course => 
+                    course.CourseCode === code
+                )
+                // add course to user array
+                user.courses.push(course);
+                
+                // then get local storage data and update it with newly added course
+                const savedUsers = JSON.parse(localStorage.getItem('users'));
+                for(let i = 0; i < savedUsers.length ; i++)
+                {
+                    // find matching user in array
+                    if(savedUsers[i].email.toLowerCase() === user.email.toLowerCase())
+                    {
+                        // add course to their courses
+                        savedUsers[i].courses.push(course)
+                    }
+                }
+                // save everything
+                localStorage.setItem('users', JSON.stringify(savedUsers));
+            }
+            
+        }
+        else 
+        {
+            alert("Maxiumum courses you can register for is 5!")
+        }
+        
+        
+
+
+        
+    }
 
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
@@ -120,7 +176,7 @@ const CoursesPage = () => {
             course.CourseCode.toLowerCase().includes(searchTerm.toLowerCase()))
             ).map((course, index) => (
                 <div key = {index }>
-                    <CourseDiv Course = {course}/>
+                    <CourseDiv Course = {course} RegisterCourse={RegisterCourse}/>
                     <br />
                 </div>
                     ))}
