@@ -24,15 +24,18 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--mainContentColor1);
-    width: min(100vw);
-    height: min(100vh);
+    /* width: min(100vw); */
+    min-height: 100vh;
+
 }
 
 .burgerMenu {
+    box-sizing: border-box;
     cursor: pointer;
 }
 
 .burgerMenuBar {
+    box-sizing: border-box;
     height: 3px;
     width: 30px;
     margin: 5px 5px;
