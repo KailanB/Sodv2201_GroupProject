@@ -10,14 +10,16 @@
     align-items: center;
     padding: 20px;
     background-color: var(--mainContentColor1);
-    min-height: 100vh; 
+    min-height: 100vh;
+    width: 100%; 
+    overflow-x: hidden; 
 }
-
 
 .home-header {
     margin-bottom: 20px;
     text-align: center;
     color: var(--accentColor1);
+    width: 100%; 
 }
 
 .home-header h1 {
@@ -50,22 +52,21 @@
     color: #333; 
 }
 
-
 .departments-section ul,
 .features-section ul {
     list-style-type: none;
-    padding: 0px;
+    padding: 0;
 }
 
 .departments-section li,
 .features-section li {
-    margin: 10px 0px;
-    padding: 5px 0px;
+    margin: 10px 0;
+    padding: 5px 0;
     border-bottom: 1px solid var(--accentColor2); 
 }
 
 .cta-buttons {
-    margin: 20px 0px;
+    margin: 20px 0;
 }
 
 /* over lapping CSS here */
