@@ -25,6 +25,10 @@ const CourseDiv = (props) => {
             <button className="standardButton" onClick={() => {
                 RegisterCourse(Course.CourseCode)}}
                 >Register</button>
+            <button className="standardButton" onClick={() => {
+                EditCourse(Course.CourseCode)}}
+                >Edit</button>
+
                 
         </div>
 
