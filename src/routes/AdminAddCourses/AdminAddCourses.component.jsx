@@ -24,16 +24,38 @@ const AdminAddCourses = ({ onAddCourse }) => {
 
     const handleAddCourse = (newCourse) => {
 
+
+        const allPrograms = JSON.parse(localStorage.getItem('programs'));
+
+       
+        for(let i = 0 ; i < allPrograms.length ; i++)
+        {
+             // find program associated with course being added within program array
+            if(allPrograms[i].department.toLowerCase() === newCourse.Department.toLowerCase() && 
+               allPrograms[i].program.toLowerCase() === newCourse.Program.toLowerCase() 
+            )
+            {
+                // push new course into program array
+                allPrograms[i].courses.push(newCourse);
+                
+                break;
+            }
+        }
+        localStorage.setItem('programs', JSON.stringify(allPrograms));
+
+        // alert(allPrograms[0].courses[0].Department);
+        //localStorage.setItem('courses', JSON.stringify(allCourses));
+
         // this might have issues may need to re-write it.
-        const allCourses = JSON.parse(localStorage.getItem('courses')) || [];
+        //const allCourses = JSON.parse(localStorage.getItem('courses')) || [];
         
-        allCourses.push(newCourse);
-        localStorage.setItem('courses', JSON.stringify(allCourses));
+        //allCourses.push(newCourse);
+        //localStorage.setItem('courses', JSON.stringify(allCourses));
         // alert(allCourses[0].CourseName);
         
 
         // I don't think we need this one
-        setCourse(newCourse);
+        //setCourse(newCourse);
     };
 
     const handleSubmit = (e) => {

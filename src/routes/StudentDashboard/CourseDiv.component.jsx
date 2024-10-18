@@ -1,4 +1,4 @@
-import './CoursePageNew.style.css';
+import './StudentDashboard.style.css';
 
 
 const CourseDiv = (props) => {
@@ -6,7 +6,7 @@ const CourseDiv = (props) => {
 
     
     // const {fullName, email, message} = props;
-    const {Course, RegisterCourse} = (props);
+    const {Course} = (props);
 
 
     return (
@@ -21,19 +21,9 @@ const CourseDiv = (props) => {
             <p><strong>End Date:</strong> {Course.EndDate}</p>
             <p><strong>Department:</strong> {Course.Department}</p>
             <p><strong>Program:</strong> {Course.Program}</p>
-            <p><strong>Description:</strong> {Course.Description}</p>
-            <button className="standardButton" onClick={() => {
-                RegisterCourse(Course.CourseCode)}}
-                >Register</button>
-                
+            <p><strong>Description:</strong> {Course.Description}</p>   
         </div>
 
-
-        // <div className="messageDiv" >
-        //     <h4>From {fullName}</h4>
-        //     <p>Email: {email}</p>
-        //     <p>Message: {message}</p>
-        // </div>
 
     );
 };
