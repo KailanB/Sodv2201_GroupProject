@@ -38,7 +38,7 @@ function View() {
             let user = {
                 firstName: 'Teeny',
                 lastName: 'Tine',
-                email: 'ttadmin@gmail.com',
+                email: 'admin@gmail.com',
                 phone: '123-456-1234',
                 birthday: '1900-10-10',
                 department: 'IT',
