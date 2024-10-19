@@ -7,6 +7,7 @@ const CourseDiv = (props) => {
     
     // const {fullName, email, message} = props;
     const {Course, RegisterCourse} = (props);
+    const {EditCourse} = (props);
 
 
     return (
