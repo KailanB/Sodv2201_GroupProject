@@ -1,5 +1,6 @@
 import './CoursePageNew.style.css';
 import { GetCookieByName } from '../../Utilities.js';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const CourseDiv = (props) => {
 
@@ -7,6 +8,7 @@ const CourseDiv = (props) => {
     
     // const {fullName, email, message} = props;
     const {Course, RegisterCourse} = (props);
+    let navigate = useNavigate();  // Initialize navigate
     // const {EditCourse} = (props);
 
     let userEmail = GetCookieByName("userEmail=");
@@ -61,9 +63,9 @@ const CourseDiv = (props) => {
                         {/* <button className="standardButton" onClick={() => {
                             RegisterCourse(Course.CourseId)}}
                             >Register</button> */}
-                        {/* <button className="standardButton" onClick={() => {
-                            EditCourse(Course.CourseId)}}
-                            >Edit</button> */}
+                        <button className="standardButton" onClick={() => {
+                            EditCourse(Course.CourseCode)}}
+                            >Edit</button>
             
                             
                     </div>

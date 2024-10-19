@@ -1,22 +1,6 @@
-
-
-        // alert(allPrograms[0].courses[0].Department);
-        //localStorage.setItem('courses', JSON.stringify(allCourses));
-
-        // this might have issues may need to re-write it.
-        //const allCourses = JSON.parse(localStorage.getItem('courses')) || [];
-        
-        //allCourses.push(newCourse);
-        //localStorage.setItem('courses', JSON.stringify(allCourses));
-        // alert(allCourses[0].CourseName);
-        
-
-        // I don't think we need this one
-        //setCourse(newCourse);
-
 import React, { useState } from 'react';
 import './AdminAddCourses.style.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
+// import '../../AdminCourseManager.js';
 
 const AdminAddCourses = ({ onAddCourse }) => {
     const [course, setCourse] = useState({
@@ -31,8 +15,6 @@ const AdminAddCourses = ({ onAddCourse }) => {
         CourseId: ''
     });
 
-    const navigate = useNavigate(); // Initialize useNavigate
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setCourse((prevCourse) => ({
@@ -42,6 +24,8 @@ const AdminAddCourses = ({ onAddCourse }) => {
     };
 
     const handleAddCourse = (newCourse) => {
+
+
         const allPrograms = JSON.parse(localStorage.getItem('programs')) || [];
 
        
@@ -55,15 +39,30 @@ const AdminAddCourses = ({ onAddCourse }) => {
                 // push new course into program array
                 newCourse.CourseId = Date.Now();
                 allPrograms[i].courses.push(newCourse);
+                
                 break;
             }
         }
         localStorage.setItem('programs', JSON.stringify(allPrograms));
+
+        // alert(allPrograms[0].courses[0].Department);
+        //localStorage.setItem('courses', JSON.stringify(allCourses));
+
+        // this might have issues may need to re-write it.
+        //const allCourses = JSON.parse(localStorage.getItem('courses')) || [];
+        
+        //allCourses.push(newCourse);
+        //localStorage.setItem('courses', JSON.stringify(allCourses));
+        // alert(allCourses[0].CourseName);
+        
+
+        // I don't think we need this one
+        //setCourse(newCourse);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleAddCourse(course); // Add course to localStorage
+        handleAddCourse(course); // Sending data to AdminCourseManager component
         setCourse({
             CourseName: '',
             CourseCode: '',

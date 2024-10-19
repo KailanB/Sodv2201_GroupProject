@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './AdminEditCourses.style.css';
-import { useLocation } from 'react-router-dom'; // Import useLocation to access state
+import { useLocation } from 'react-router-dom'; // Import useLocation to get the course data
 
 const AdminEditCourses = ({ onEditCourse }) => {
     const location = useLocation();
-    const { course } = location.state; // Get the course data passed from AddCourses page
+    const { course } = location.state;  // Access course from location state
 
     const [editedCourse, setEditedCourse] = useState(course);
 
@@ -24,6 +24,7 @@ const AdminEditCourses = ({ onEditCourse }) => {
         e.preventDefault();
         onEditCourse(editedCourse); // Send updated data to parent component
     };
+
 
     return (
         <div className="unique-page">
@@ -82,4 +83,3 @@ const AdminEditCourses = ({ onEditCourse }) => {
 };
 
 export default AdminEditCourses;
-
