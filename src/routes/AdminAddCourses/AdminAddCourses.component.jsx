@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './AdminAddCourses.style.css';
 // import '../../AdminCourseManager.js';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-
+//adding 
 const AdminAddCourses = ({ onAddCourse }) => {
     const [course, setCourse] = useState({
         CourseName: '',
