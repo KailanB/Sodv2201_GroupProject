@@ -19,7 +19,7 @@ const AdminEditCourses = () => {
             [name]: value
         }));
     };
-
+//added 
     // const handleSubmit = (e) => {
     //     e.preventDefault();
     //     onEditCourse(editedCourse); // Send updated data to parent component
