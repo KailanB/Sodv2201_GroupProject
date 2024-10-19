@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react';
 import './CoursePageNew.style.css';
 import CourseDiv from './CourseDiv.component.jsx';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 import { GetCookieByName } from '../../Utilities.js';
 
@@ -18,6 +19,11 @@ const CoursesPage = () => {
 
 
     const [searchTerm, setSearchTerm] = useState('');
+
+    const navigate = useNavigate(); // Initialize useNavigate
+
+
+    
 
     useEffect(() => { 
 
@@ -178,14 +184,22 @@ const CoursesPage = () => {
         }
         
         
-
-
-        
     }
+
+    // New EditCourse function 
+    const EditCourse = (code) => {
+        const course = courses.find(c => c.CourseCode === code);
+        if (course) {
+            // Navigate to the edit course page with the course details
+            navigate('/AdminEditCourses', { state: { course } });
+        }
+    };
 
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
     };
+
+    
 
     return (
 
