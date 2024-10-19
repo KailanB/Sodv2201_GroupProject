@@ -25,6 +25,16 @@ const AdminEditCourses = ({ onEditCourse }) => {
         onEditCourse(editedCourse); // Send updated data to parent component
     };
 
+    const handleDelete = (e) => {
+        e.preventDefault();
+        alert("Course deleted!");
+    };
+    
+    const handleCancel = (e) => {
+        e.preventDefault();
+        alert("cancelled!");
+    };
+
 
     return (
         <div className="unique-page">
@@ -72,9 +82,9 @@ const AdminEditCourses = ({ onEditCourse }) => {
                     <label>Description:</label>
                     <textarea name="Description" value={editedCourse.Description} onChange={handleChange} className="standardInput" rows="4" required></textarea>
                     <div className="button-group">
-                    <button className="standardButton deleteButton">Delete Course</button>
-                    <button className="standardButton cancelButton">Cancel</button>
-                    <button className="standardButton saveButton">Save Changes</button>
+                    <button className="standardButton deleteButton" onClick={handleDelete}>Delete Course</button>
+                    <button className="standardButton cancelButton" onClick={handleCancel}>Cancel</button>
+                    <button type="submit" className="standardButton saveButton">Save Changes</button>
                 </div>
                 </div>
             </form>
