@@ -20,7 +20,7 @@ const CoursesPage = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
 
-    const navigate = useNavigate(); // Initialize useNavigate
+    const nav = useNavigate(); // Initialize useNavigate
 
 
     
@@ -191,7 +191,7 @@ const CoursesPage = () => {
         const course = courses.find(c => c.CourseCode === code);
         if (course) {
             // Navigate to the edit course page with the course details
-            navigate('/AdminEditCourses', { state: { course } });
+            nav('/AdminEditCourses', { state: { course } });
         }
     };
 
@@ -221,7 +221,7 @@ const CoursesPage = () => {
             course.CourseCode.toLowerCase().includes(searchTerm.toLowerCase()))
             ).map((course, index) => (
                 <div key = {index }>
-                    <CourseDiv Course = {course} RegisterCourse={RegisterCourse}/>
+                    <CourseDiv Course = {course} RegisterCourse={RegisterCourse} EditCourse={EditCourse}/>
                     <br />
                 </div>
                     ))}

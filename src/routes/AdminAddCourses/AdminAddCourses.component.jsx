@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './AdminAddCourses.style.css';
 // import '../../AdminCourseManager.js';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const AdminAddCourses = ({ onAddCourse }) => {
     const [course, setCourse] = useState({
@@ -14,6 +15,8 @@ const AdminAddCourses = ({ onAddCourse }) => {
         Description: '',
         CourseId: ''
     });
+
+    const nav = useNavigate(); // Initialize useNavigate
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -76,7 +79,7 @@ const AdminAddCourses = ({ onAddCourse }) => {
         }); // Clear the form
 
         // Redirect to the edit page with course details after adding
-        navigate('./AdminEditCourses', { state: { course } });
+        nav('./AdminEditCourses', { state: { course } });
     };
 
     return (
