@@ -2,13 +2,26 @@ import {React, useState, useEffect } from 'react';
 import './StudentDashboard.style.css';
 import { GetCookieByName } from '../../Utilities.js';
 import StudentDashboardCourseDiv from './StudentDashboardCourseDiv.component.jsx';
+import StudentDashboardDiv from './StudentDashboardDiv.component.jsx';
 
 const StudentDashboard = (props) => {
   //const { name, id, status, department, program } = props;
   const [userCourses, setUserCourses] = useState([]);
 
-  const[users, setUsers] = useState(() => JSON.parse(localStorage.getItem('users')) || []);
-  const[user, setUser] = useState(() => {
+  const[users, setUsers] = useState([]);
+
+  const[user, setUser] = useState([]);
+
+  useEffect(() => {
+
+    const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    setUsers([...savedUsers]);
+
+  }, []);
+
+  useEffect(() => {
+   
+
     let userEmail = GetCookieByName("userEmail=");
     let userExists = users.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());
     if(userExists)
@@ -18,14 +31,10 @@ const StudentDashboard = (props) => {
       {
         setUserCourses([...userExists.courses]);
       }
+      setUser(userExists);
       
-      return userExists;
     }
-    else
-    {
-      return '';
-    }
-  });
+  }, [users]);
 
 
   
@@ -50,9 +59,11 @@ const StudentDashboard = (props) => {
         console.log("error finding user!");
       }
     }
+    
     user.courses.splice(index, 1);
     const updatedCourses = user.courses;
     setUserCourses([...updatedCourses]);
+    
 
   }
 
@@ -66,21 +77,7 @@ const StudentDashboard = (props) => {
       <div className="dashboard-container">
         <div className="info-box">
           <h2>Student Dashboard</h2>
-          <div className="info-item">
-            <strong>Name:</strong> {user.firstName} {user.lastName}
-          </div>
-          <div className="info-item">
-            <strong>ID:</strong> {user.studentId}
-          </div>
-          <div className="info-item">
-            <strong>Status:</strong> {user.status}
-          </div>
-          <div className="info-item">
-            <strong>Department:</strong> {user.department}
-          </div>
-          <div className="info-item">
-            <strong>Program:</strong> {user.program}
-          </div>
+            <StudentDashboardDiv user={user} />
         </div>
         <div className="info-box notifications">
           <h3>Notifications</h3>

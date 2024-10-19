@@ -34,7 +34,7 @@ const CourseDiv = (props) => {
                         <p><strong>Program:</strong> {Course.Program}</p>
                         <p><strong>Description:</strong> {Course.Description}</p>
                         <button className="standardButton" onClick={() => {
-                            RegisterCourse(Course.CourseCode)}}
+                            RegisterCourse(Course.CourseId)}}
                             >Register</button>
                         {/* <button className="standardButton" onClick={() => {
                             EditCourse(Course.CourseCode)}}
@@ -61,7 +61,7 @@ const CourseDiv = (props) => {
                         <p><strong>Program:</strong> {Course.Program}</p>
                         <p><strong>Description:</strong> {Course.Description}</p>
                         {/* <button className="standardButton" onClick={() => {
-                            RegisterCourse(Course.CourseCode)}}
+                            RegisterCourse(Course.CourseId)}}
                             >Register</button> */}
                         <button className="standardButton" onClick={() => {
                             EditCourse(Course.CourseCode)}}

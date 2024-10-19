@@ -11,7 +11,8 @@ const AdminAddCourses = ({ onAddCourse }) => {
         EndDate: '',
         Department: '',
         Program: '',
-        Description: ''
+        Description: '',
+        CourseId: ''
     });
 
     const handleChange = (e) => {
@@ -36,6 +37,7 @@ const AdminAddCourses = ({ onAddCourse }) => {
             )
             {
                 // push new course into program array
+                newCourse.CourseId = Date.Now();
                 allPrograms[i].courses.push(newCourse);
                 
                 break;
@@ -69,8 +71,12 @@ const AdminAddCourses = ({ onAddCourse }) => {
             EndDate: '',
             Department: '',
             Program: '',
-            Description: ''
-        }); // Clear form after submission
+            Description: '',
+            CourseId: ''
+        }); // Clear the form
+
+        // Redirect to the edit page with course details after adding
+        navigate('./AdminEditCourses', { state: { course } });
     };
 
     return (

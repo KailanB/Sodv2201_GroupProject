@@ -36,13 +36,6 @@ const ContactPage = () => {
     const onAddUser = (message) => {
 
        
-        // I was having an unknown issue earlier we may have to use this version
-        // const savedMessages = JSON.parse(localStorage.getItem('messages'));
-        // if(!savedMessages)
-        // {
-        //     savedMessages = [];
-        // }
-
         // pull local storage of messages
         const savedMessages = JSON.parse(localStorage.getItem('messages')) || [];
         //if storage exists

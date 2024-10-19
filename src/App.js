@@ -29,7 +29,7 @@ import AdminDashboard from './routes/AdminDashboard/AdminDashboard.component.jsx
 import AdminMessagesPage from './routes/AdminMessages/AdminMessagesPage.component.jsx';
 import ViewRegisteredStudents from './routes/ViewRegisteredStudents/ViewRegisteredStudents.component.jsx';
 import CoursesPage from "./routes/CoursesPageNew/CoursesPage.component.jsx";
-import CoursesPage from "./routes/CoursesPageNew/CourseDiv.component.jsx";
+// import CoursesPage from "./routes/CoursesPageNew/CourseDiv.component.jsx";
 
 import StudentDashboard from './routes/StudentDashboard/StudentDashboard.component.jsx';
 
