@@ -126,7 +126,8 @@ const SignUpForm = ({onAddUser}) => {
                     required>
                         <option></option>
                         <option>Software Development</option>
-                        <option>Engineering</option>
+                        {/* Removed this for now as the worksheet says SD department only */}
+                        {/* <option>Engineering</option> */}
                     </select>
                 </div>
                 <div className='labelInputDiv'>
