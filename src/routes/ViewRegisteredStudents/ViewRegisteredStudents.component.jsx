@@ -8,13 +8,18 @@ const ViewRegisteredStudents = () => {
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
-        const savedUsers = JSON.parse(localStorage.getItem('users'));
+        const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
+        
         if(savedUsers)
         {
-            savedUsers.filter((student) => {
-                student.status.includes("Student")
+            
+            const filteredStudents = savedUsers.filter((student) => {
+                
+                return student.status === "Student";
             });
-            setStudents(savedUsers);
+
+            setStudents([...filteredStudents]);
+            
         }
     }, []);
 
@@ -66,6 +71,10 @@ const ViewRegisteredStudents = () => {
                     </div>
                 </div>
             </div>
+            <div>
+                <h3>Registered Students</h3>
+            </div>
+            
             <div className="course-list">
                 {students.filter(student => 
                 student.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || 
