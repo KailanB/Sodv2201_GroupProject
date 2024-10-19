@@ -27,7 +27,8 @@ const AdminAddCourses = ({ onAddCourse }) => {
         EndDate: '',
         Department: '',
         Program: '',
-        Description: ''
+        Description: '',
+        CourseId: ''
     });
 
     const navigate = useNavigate(); // Initialize useNavigate
@@ -43,9 +44,16 @@ const AdminAddCourses = ({ onAddCourse }) => {
     const handleAddCourse = (newCourse) => {
         const allPrograms = JSON.parse(localStorage.getItem('programs')) || [];
 
-        for (let i = 0; i < allPrograms.length; i++) {
-            if (allPrograms[i].department.toLowerCase() === newCourse.Department.toLowerCase() &&
-                allPrograms[i].program.toLowerCase() === newCourse.Program.toLowerCase()) {
+       
+        for(let i = 0 ; i < allPrograms.length ; i++)
+        {
+             // find program associated with course being added within program array
+            if(allPrograms[i].department.toLowerCase() === newCourse.Department.toLowerCase() && 
+               allPrograms[i].program.toLowerCase() === newCourse.Program.toLowerCase() 
+            )
+            {
+                // push new course into program array
+                newCourse.CourseId = Date.Now();
                 allPrograms[i].courses.push(newCourse);
                 break;
             }
@@ -64,7 +72,8 @@ const AdminAddCourses = ({ onAddCourse }) => {
             EndDate: '',
             Department: '',
             Program: '',
-            Description: ''
+            Description: '',
+            CourseId: ''
         }); // Clear the form
 
         // Redirect to the edit page with course details after adding
