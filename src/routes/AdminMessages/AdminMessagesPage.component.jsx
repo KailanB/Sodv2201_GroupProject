@@ -9,22 +9,6 @@ const AdminMessagesPage = () => {
 
     const [messages, setMessages]= useState(() => JSON.parse(localStorage.getItem('messages')) || []);
 
-    // useEffect(() => {
-
-    //     const savedMessages = ;
-    //     setMessages(savedMessages);
-    //     // if(savedMessages)
-    //     // {
-            
-    //     // }
-
-    // }, []);
-
-    useEffect(() => {
-
-        
-
-    }, [messages]);
 
     return (
 
