@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './AdminEditCourses.style.css';
+import { useLocation } from 'react-router-dom'; // Import useLocation to access state
 
-const AdminEditCourses = ({ course, onEditCourse }) => {
+const AdminEditCourses = ({ onEditCourse }) => {
+    const location = useLocation();
+    const { course } = location.state; // Get the course data passed from AddCourses page
+
     const [editedCourse, setEditedCourse] = useState(course);
 
     useEffect(() => {

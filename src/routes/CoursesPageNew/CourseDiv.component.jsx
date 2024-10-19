@@ -7,7 +7,7 @@ const CourseDiv = (props) => {
     
     // const {fullName, email, message} = props;
     const {Course, RegisterCourse} = (props);
-    const {EditCourse} = (props);
+    // const {EditCourse} = (props);
 
     let userEmail = GetCookieByName("userEmail=");
     const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
