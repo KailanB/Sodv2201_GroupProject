@@ -25,7 +25,7 @@ const NavBars = (props) => {
 
 
     let userEmail = GetCookieByName("userEmail=");
-    const users = JSON.parse(localStorage.getItem('users'));
+    const users = JSON.parse(localStorage.getItem('users')) || [];
     let currentUser;
     // if user has a cookie check if user is admin or student
     // then return appropriate nav bar

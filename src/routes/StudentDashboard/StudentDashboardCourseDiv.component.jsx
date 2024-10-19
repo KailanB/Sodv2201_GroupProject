@@ -1,12 +1,12 @@
 import './StudentDashboard.style.css';
 
 
-const CourseDiv = (props) => {
+const StudentDashboardCourseDiv = (props) => {
 
 
     
     // const {fullName, email, message} = props;
-    const {Course} = (props);
+    const {Course, RemoveCourse} = (props);
 
 
     return (
@@ -21,7 +21,10 @@ const CourseDiv = (props) => {
             <p><strong>End Date:</strong> {Course.EndDate}</p>
             <p><strong>Department:</strong> {Course.Department}</p>
             <p><strong>Program:</strong> {Course.Program}</p>
-            <p><strong>Description:</strong> {Course.Description}</p>   
+            <p><strong>Description:</strong> {Course.Description}</p>  
+            <button className="standardButton" onClick={() => {
+                RemoveCourse(Course.CourseCode)}}
+                >Remove Course</button> 
         </div>
 
 
@@ -29,4 +32,4 @@ const CourseDiv = (props) => {
 };
 
 
-export default CourseDiv;
+export default StudentDashboardCourseDiv;

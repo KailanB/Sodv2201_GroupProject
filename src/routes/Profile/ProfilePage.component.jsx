@@ -15,7 +15,7 @@ function ProfilePage() {
 
         
         let userEmail = GetCookieByName("userEmail=")
-        const savedUsers = JSON.parse(localStorage.getItem('users'));       
+        const savedUsers = JSON.parse(localStorage.getItem('users')) || [];       
         let userExists = savedUsers.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());
 
         if(userExists)

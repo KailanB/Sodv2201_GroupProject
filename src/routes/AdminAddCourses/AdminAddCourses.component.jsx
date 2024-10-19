@@ -25,7 +25,7 @@ const AdminAddCourses = ({ onAddCourse }) => {
     const handleAddCourse = (newCourse) => {
 
 
-        const allPrograms = JSON.parse(localStorage.getItem('programs'));
+        const allPrograms = JSON.parse(localStorage.getItem('programs')) || [];
 
        
         for(let i = 0 ; i < allPrograms.length ; i++)

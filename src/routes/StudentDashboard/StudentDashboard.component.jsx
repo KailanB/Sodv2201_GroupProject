@@ -1,33 +1,65 @@
 import {React, useState, useEffect } from 'react';
 import './StudentDashboard.style.css';
 import { GetCookieByName } from '../../Utilities.js';
-import CourseDiv from './CourseDiv.component.jsx';
+import StudentDashboardCourseDiv from './StudentDashboardCourseDiv.component.jsx';
 
 const StudentDashboard = (props) => {
   //const { name, id, status, department, program } = props;
+  const [userCourses, setUserCourses] = useState([]);
+
+  const[users, setUsers] = useState(() => JSON.parse(localStorage.getItem('users')) || []);
+  const[user, setUser] = useState(() => {
+    let userEmail = GetCookieByName("userEmail=");
+    let userExists = users.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());
+    if(userExists)
+    {
+      // check first that there is courses to add to state
+      if(userExists.courses.length > 0)
+      {
+        setUserCourses([...userExists.courses]);
+      }
+      
+      return userExists;
+    }
+    else
+    {
+      return '';
+    }
+  });
 
 
-  const[user, setUser] = useState([]);
+  
+
+
 
     
+  const RemoveCourse = (code) => {
 
-    useEffect(() => {
+    // alert(user.courses.length);
+    const index = user.courses.findIndex(course => course.CourseCode === code);
+    
+    const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    for(let i = 0 ; i < savedUsers.length ; i++)
+    {
+      if(savedUsers[i].email.toLowerCase() === user.email.toLowerCase())
+      {
+        savedUsers[i].courses.splice(index, 1);
+        localStorage.setItem('users', JSON.stringify(savedUsers));
+      }
+      else{
+        console.log("error finding user!");
+      }
+    }
+    user.courses.splice(index, 1);
+    const updatedCourses = user.courses;
+    setUserCourses([...updatedCourses]);
 
-        
-      let userEmail = GetCookieByName("userEmail=")
+  }
 
-      const savedUsers = JSON.parse(localStorage.getItem('users'));
+    // useEffect(() => {
 
       
-      let userExists = savedUsers.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());
-
-
-      if(userExists)
-      {
-          //alert(userExists.studentId);
-          setUser(userExists);  
-      }
-    }, []);
+    // }, [users]);
 
   return (
     <div>
@@ -59,9 +91,9 @@ const StudentDashboard = (props) => {
         </div>
       </div>
       <div>
-          {user.courses.map((course, index) => (
+          {userCourses.map((course, index) => (
             <div>
-              <CourseDiv Course = {course} />
+              <StudentDashboardCourseDiv Course = {course} RemoveCourse={RemoveCourse}/>
             </div>
           ))}
       </div>

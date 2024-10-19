@@ -17,7 +17,7 @@ const SignUpPage = () => {
     useEffect(() => {
         // this effect runs on first load of the page
         // pulls data from local storage
-        const savedUsers = JSON.parse(localStorage.getItem('users'));
+        const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
         // checks if data exists. If so, then set our users with local storage data
         if(savedUsers)
         {
@@ -38,11 +38,14 @@ const SignUpPage = () => {
 
     const addUser = (user) => {
 
+
+        
         // searches the local storage for the email that is attempting to be registered
         let userExists = users.find(savedUser => savedUser.email.toLowerCase() === user.email.toLowerCase())
         // if no such user exists we can go ahead and add the user to our storage
         if(!userExists)
         {
+            alert(user);
             // create new unqiue studentId for new user
             user.studentId = Date.now();
             user.email.toLowerCase();

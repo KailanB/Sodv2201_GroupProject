@@ -40,8 +40,9 @@ const CoursesPage = () => {
         )
         
 
-        let userEmail = GetCookieByName("userEmail=")
-        const savedUsers = JSON.parse(localStorage.getItem('users'));
+        let userEmail = GetCookieByName("userEmail=");
+        
+        const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
         let userExists = savedUsers.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());
         
         console.log("after getting user data");
@@ -70,7 +71,7 @@ const CoursesPage = () => {
             // I don't understand what is going on here
             const savedCourses = courses.filter(course => (
             course.Department.toLowerCase() === user.department.toLowerCase()) &&
-            (course.Program.toLowerCase() === user.program.toLowerCase())
+            (course.Program.toLowerCase() === user.program.toLowerCase()) 
             )
             // set courses to filtered options for displaying
 
@@ -95,7 +96,7 @@ const CoursesPage = () => {
 
     const RegisterCourse = (code) => {
 
-        
+
         if(user.courses.length < 5)
         {
 
@@ -116,7 +117,7 @@ const CoursesPage = () => {
                 user.courses.push(course);
                 
                 // then get local storage data and update it with newly added course
-                const savedUsers = JSON.parse(localStorage.getItem('users'));
+                const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
                 for(let i = 0; i < savedUsers.length ; i++)
                 {
                     // find matching user in array
@@ -128,6 +129,7 @@ const CoursesPage = () => {
                 }
                 // save everything
                 localStorage.setItem('users', JSON.stringify(savedUsers));
+                
             }
             
         }
