@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './AdminEditCourses.style.css';
 import { useLocation } from 'react-router-dom'; // Import useLocation to get the course data
 
-const AdminEditCourses = ({ onEditCourse }) => {
+const AdminEditCourses = () => {
     const location = useLocation();
     const { course } = location.state;  // Access course from location state
 
@@ -20,10 +20,10 @@ const AdminEditCourses = ({ onEditCourse }) => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onEditCourse(editedCourse); // Send updated data to parent component
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     onEditCourse(editedCourse); // Send updated data to parent component
+    // };
 
     const handleDelete = (e) => {
         e.preventDefault();
@@ -35,11 +35,64 @@ const AdminEditCourses = ({ onEditCourse }) => {
         alert("cancelled!");
     };
 
+    const onEditCourse = (course) => {
+
+        const savedPrograms = JSON.parse(localStorage.getItem("programs")) || [];
+        const savedCourses = [];
+        // alert(programs[0].courses[0].CourseCode);
+        savedPrograms.forEach(program => 
+            program.courses.forEach((localStorageCourse, index) => {
+
+                if(localStorageCourse.CourseId === course.CourseId)
+                {
+                    program.courses[index] = course;
+                    localStorage.setItem('programs', JSON.stringify(savedPrograms));
+                }
+            })
+        )
+        window.location.href = "/coursesPage";
+        // savedCourses.find(savedCourse => {
+        //     savedCourse.CourseId === course.CourseId;
+        // })
+
+
+        
+        // console.log("Saved Programs ");
+        // console.log(savedPrograms);
+        // try using spread operator ... to see if it helps with the order of things    
+        // setPrograms([...savedPrograms]);   
+        
+        
+        
+
+
+        // const index = user.courses.findIndex(course => course.CourseCode === code);
+        
+        // const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
+        // for(let i = 0 ; i < savedUsers.length ; i++)
+        // {
+        // if(savedUsers[i].email.toLowerCase() === user.email.toLowerCase())
+        // {
+        //     savedUsers[i].courses.splice(index, 1);
+            
+        // }
+        // else{
+        //     console.log("error finding user!");
+        // }
+        // }
+
+    }
+
+    const onDeleteCourse = (course) => {
+
+        
+    }
+// onSubmit={handleSubmit}
 
     return (
         <div className="unique-page">
             <h3>Edit Course</h3>
-            <form onSubmit={handleSubmit}>
+            <form >
                 <div className='form-group'>
                     <label>Course Name:</label>
                     <input type="text" name="CourseName" value={editedCourse.CourseName} onChange={handleChange} className="standardInput" required />
@@ -82,9 +135,12 @@ const AdminEditCourses = ({ onEditCourse }) => {
                     <label>Description:</label>
                     <textarea name="Description" value={editedCourse.Description} onChange={handleChange} className="standardInput" rows="4" required></textarea>
                     <div className="button-group">
+
                     <button className="standardButton deleteButton" onClick={handleDelete}>Delete Course</button>
                     <button className="standardButton cancelButton" onClick={handleCancel}>Cancel</button>
                     <button type="submit" className="standardButton saveButton">Save Changes</button>
+
+
                 </div>
                 </div>
             </form>
