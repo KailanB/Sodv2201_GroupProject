@@ -29,7 +29,7 @@ const LogInPage = () => {
     const onAddUser = (user) => {
 
         // searches the local storage for the email that is attempting to be registered
-        const users = JSON.parse(localStorage.getItem('users'));
+        const users = JSON.parse(localStorage.getItem('users')) || [];
         let userExists = users.find(savedUser => savedUser.email.toLowerCase() === user.email.toLowerCase());
         // if user exists check that the correct password was used
         if(userExists)

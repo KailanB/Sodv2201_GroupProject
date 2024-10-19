@@ -14,7 +14,7 @@ const ProgramsPageMain = () => {
 
     useEffect(() => {
 
-        const programs = JSON.parse(localStorage.getItem('programs'));
+        const programs = JSON.parse(localStorage.getItem('programs')) || [];
 
         if(programs)
         {
