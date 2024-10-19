@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { BrowserRouter as Routes, Route } from 'react-router-dom';
+// import { BrowserRouter as Routes, Route } from 'react-router-dom';
 import './App.css';
 // import StudentProfile from './components/StudentProfile/StudentProfile.component';
 // import image from './img/BPDF_Happy.png';

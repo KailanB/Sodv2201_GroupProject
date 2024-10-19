@@ -1,4 +1,47 @@
+import React, { useState } from 'react';
+import './AdminAddCourses.style.css';
+// import '../../AdminCourseManager.js';
 
+const AdminAddCourses = ({ onAddCourse }) => {
+    const [course, setCourse] = useState({
+        CourseName: '',
+        CourseCode: '',
+        Term: '',
+        StartDate: '',
+        EndDate: '',
+        Department: '',
+        Program: '',
+        Description: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCourse((prevCourse) => ({
+            ...prevCourse,
+            [name]: value
+        }));
+    };
+
+    const handleAddCourse = (newCourse) => {
+
+
+        const allPrograms = JSON.parse(localStorage.getItem('programs')) || [];
+
+       
+        for(let i = 0 ; i < allPrograms.length ; i++)
+        {
+             // find program associated with course being added within program array
+            if(allPrograms[i].department.toLowerCase() === newCourse.Department.toLowerCase() && 
+               allPrograms[i].program.toLowerCase() === newCourse.Program.toLowerCase() 
+            )
+            {
+                // push new course into program array
+                allPrograms[i].courses.push(newCourse);
+                
+                break;
+            }
+        }
+        localStorage.setItem('programs', JSON.stringify(allPrograms));
 
         // alert(allPrograms[0].courses[0].Department);
         //localStorage.setItem('courses', JSON.stringify(allCourses));
@@ -13,49 +56,11 @@
 
         // I don't think we need this one
         //setCourse(newCourse);
-
-import React, { useState } from 'react';
-import './AdminAddCourses.style.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
-
-const AdminAddCourses = ({ onAddCourse }) => {
-    const [course, setCourse] = useState({
-        CourseName: '',
-        CourseCode: '',
-        Term: '',
-        StartDate: '',
-        EndDate: '',
-        Department: '',
-        Program: '',
-        Description: ''
-    });
-
-    const navigate = useNavigate(); // Initialize useNavigate
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setCourse((prevCourse) => ({
-            ...prevCourse,
-            [name]: value
-        }));
-    };
-
-    const handleAddCourse = (newCourse) => {
-        const allPrograms = JSON.parse(localStorage.getItem('programs')) || [];
-
-        for (let i = 0; i < allPrograms.length; i++) {
-            if (allPrograms[i].department.toLowerCase() === newCourse.Department.toLowerCase() &&
-                allPrograms[i].program.toLowerCase() === newCourse.Program.toLowerCase()) {
-                allPrograms[i].courses.push(newCourse);
-                break;
-            }
-        }
-        localStorage.setItem('programs', JSON.stringify(allPrograms));
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleAddCourse(course); // Add course to localStorage
+        handleAddCourse(course); // Sending data to AdminCourseManager component
         setCourse({
             CourseName: '',
             CourseCode: '',
@@ -65,10 +70,7 @@ const AdminAddCourses = ({ onAddCourse }) => {
             Department: '',
             Program: '',
             Description: ''
-        }); // Clear the form
-
-        // Redirect to the edit page with course details after adding
-        navigate('./AdminEditCourses', { state: { course } });
+        }); // Clear form after submission
     };
 
     return (
