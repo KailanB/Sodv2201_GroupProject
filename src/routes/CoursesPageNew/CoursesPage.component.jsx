@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 import { GetCookieByName } from '../../Utilities.js';
 
+// import {useParams} from 'react-router-dom';
 
 
-const CoursesPage = () => {
+const CoursesPage = (props) => {
 
     const [courses, setCourses] = useState([]);
     const[user, setUser] = useState([]);
@@ -22,7 +23,9 @@ const CoursesPage = () => {
 
     const nav = useNavigate(); // Initialize useNavigate
 
+    // const { programCourses } = useParams();
 
+    const {program} = props;
     
 
     useEffect(() => { 
@@ -61,33 +64,6 @@ const CoursesPage = () => {
 
     }, []);
 
-    useEffect(() => {
-
-          
-        
-        // // console.log(programs[0].courses);
-        // let userEmail = GetCookieByName("userEmail=");
-        
-        // const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
-        // let userExists = savedUsers.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());
-        
-        // // console.log("after getting user data");
-        // if(userExists)
-        // {
-        //     setUser(userExists); 
-            
-        //     // if user logged in is a student filter to only display courses available for the users department and program
-            
-            
-        // }
-
-        
-        
-
-    }, [programs]);
-
-
-    
 
     useEffect(() => {
 
@@ -110,18 +86,6 @@ const CoursesPage = () => {
 
 
     }, [user]);
-    // const [messages, setMessages]= useState([]);
-
-    // useEffect(() => {
-
-    //     const savedMessages = JSON.parse(localStorage.getItem('messages'));
-
-    //     if(savedMessages)
-    //     {
-    //         setMessages(savedMessages);
-    //     }
-
-    // }, []);
 
     const RegisterCourse = (Id) => {
 
