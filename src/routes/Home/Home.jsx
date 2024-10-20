@@ -34,8 +34,7 @@ const Home = () => {
             <div className="cta-buttons">
                 <button className="standardButton" onClick={() => window.location.href='/programsPage'}>View Programs</button>
                 <button className="standardButton" onClick={() => window.location.href='/signUpPage'}>Apply Now</button>
-                {/* we can add events but keeping it as anoptional for now  */}
-                {/* <button className="standardButton" onClick={() => window.location.href='/events'}>Upcoming Events</button> */} 
+                 
             </div>
         </div>
     );
