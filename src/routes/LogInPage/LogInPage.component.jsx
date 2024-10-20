@@ -44,8 +44,15 @@ const LogInPage = () => {
                 // create user cookie with users email
                 expireDate.setTime(expireDate.getTime() + (days * 24 * 60 * 60 * 1000));
                 document.cookie = "userEmail=" + userExists.email.toLowerCase() + ";" + expireDate + ";path=/";
-                // alert(document.cookie);
-                window.location.href = "/studentDashboard";
+                if(userExists.status == "Student")
+                {
+                    window.location.href = "/studentDashboard";
+                }
+                else
+                {
+                    window.location.href = "/adminDashboard";
+                }
+                
             }
             else
             {
