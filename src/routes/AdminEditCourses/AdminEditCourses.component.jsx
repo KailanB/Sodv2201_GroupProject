@@ -9,7 +9,9 @@ const AdminEditCourses = () => {
     const [editedCourse, setEditedCourse] = useState(course);
 
     useEffect(() => {
+        
         setEditedCourse(course); // Update form if course data changes
+        
     }, [course]);
 
     const handleChange = (e) => {
@@ -18,81 +20,61 @@ const AdminEditCourses = () => {
             ...prevCourse,
             [name]: value
         }));
+        // alert(editedCourse.CourseCode);
     };
 //added 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     onEditCourse(editedCourse); // Send updated data to parent component
-    // };
-
-    const handleDelete = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Course deleted!");
-    };
-    
-    const handleCancel = (e) => {
-        e.preventDefault();
-        alert("cancelled!");
-    };
-
-    const onEditCourse = (course) => {
-
+        
         const savedPrograms = JSON.parse(localStorage.getItem("programs")) || [];
-        const savedCourses = [];
-        // alert(programs[0].courses[0].CourseCode);
+        // search program course data to find course with matching id
+        savedPrograms.forEach(program => 
+            program.courses.forEach((localStorageCourse, index) => {
+
+                if(localStorageCourse.CourseId === editedCourse.CourseId)
+                {
+                    // update local storage data array at index of matching id with new course data
+                    program.courses[index] = editedCourse;
+                    // save updated data to local storage
+                    localStorage.setItem('programs', JSON.stringify(savedPrograms));
+                   
+                }
+            })
+        )
+        window.location.href = "/coursesPage";
+    };
+
+    const handleDelete = () => {
+
+        alert("Course deleted!");
+        const savedPrograms = JSON.parse(localStorage.getItem("programs")) || [];
+         // search program course data to find course with matching id
         savedPrograms.forEach(program => 
             program.courses.forEach((localStorageCourse, index) => {
 
                 if(localStorageCourse.CourseId === course.CourseId)
                 {
-                    program.courses[index] = course;
+                    // delete from local storage data array at index of matching id
+                    program.courses.splice(index, 1);
+                    // save updated array to local storage
                     localStorage.setItem('programs', JSON.stringify(savedPrograms));
                 }
             })
         )
         window.location.href = "/coursesPage";
-        // savedCourses.find(savedCourse => {
-        //     savedCourse.CourseId === course.CourseId;
-        // })
+    };
+    
+    const handleCancel = () => {
+        //e.preventDefault();
+        // alert("cancelled!");
+        window.location.href = "/coursesPage";
+    };
 
-
-        
-        // console.log("Saved Programs ");
-        // console.log(savedPrograms);
-        // try using spread operator ... to see if it helps with the order of things    
-        // setPrograms([...savedPrograms]);   
-        
-        
-        
-
-
-        // const index = user.courses.findIndex(course => course.CourseCode === code);
-        
-        // const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
-        // for(let i = 0 ; i < savedUsers.length ; i++)
-        // {
-        // if(savedUsers[i].email.toLowerCase() === user.email.toLowerCase())
-        // {
-        //     savedUsers[i].courses.splice(index, 1);
-            
-        // }
-        // else{
-        //     console.log("error finding user!");
-        // }
-        // }
-
-    }
-
-    const onDeleteCourse = (course) => {
-
-        
-    }
-// onSubmit={handleSubmit}
 
     return (
         <div className="unique-page">
             <h3>Edit Course</h3>
-            <form >
+            <form onSubmit={handleSubmit}>
                 <div className='form-group'>
                     <label>Course Name:</label>
                     <input type="text" name="CourseName" value={editedCourse.CourseName} onChange={handleChange} className="standardInput" required />
@@ -138,9 +120,9 @@ const AdminEditCourses = () => {
 
                     <button className="standardButton deleteButton" onClick={handleDelete}>Delete Course</button>
                     <button className="standardButton cancelButton" onClick={handleCancel}>Cancel</button>
-                    <button type="submit" className="standardButton saveButton">Save Changes</button>
+                    <button type="submit" className="standardButton saveButton" onClick={handleSubmit}>Save Changes</button>
 
-
+                    {/* type="submit" */}
                 </div>
                 </div>
             </form>
