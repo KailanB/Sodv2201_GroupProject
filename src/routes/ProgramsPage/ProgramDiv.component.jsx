@@ -7,7 +7,7 @@ const ProgramDiv = (props) => {
 
     const NavigateToProgramCourses = (program) =>
     {
-        window.location.href = "/Courses/" + program;
+        window.location.href ="/coursesPage/" + program;
     }
 
    

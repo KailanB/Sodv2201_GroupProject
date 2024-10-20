@@ -19,14 +19,14 @@ const ProgramsPageMain = () => {
         if(programs)
         {
             //alert(userExists.studentId);
-            setPrograms(programs);  
+            setPrograms([...programs]);  
         }
     }, []);
 
     return (
 
         <div>
-            <ProgramSearch />
+            {/* <ProgramSearch /> */}
             <br />
             <div className="programDisplay">
                 {programs.map((program, index) => (
