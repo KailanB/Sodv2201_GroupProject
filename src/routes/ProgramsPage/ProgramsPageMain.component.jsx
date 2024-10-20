@@ -21,6 +21,7 @@ const ProgramsPageMain = () => {
     return (
 
         <div>
+            <h2>Software Development Programs:</h2>
             {/* <ProgramSearch /> */}
             <br />
             <div className="programDisplay">
