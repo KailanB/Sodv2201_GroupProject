@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './LogInPage.style.css';
+import { Link } from 'react-router-dom';
 
 const LogInPage = () => {
 
@@ -92,7 +93,7 @@ const LogInPage = () => {
                 </div>
                 
                 <div className="logInPageHalf">
-                    <p>Don't have an account? Make one here!</p>
+                    <p>Don't have an account? Make one <Link to="/signUpPage">here</Link>!</p>
                 </div>
             </div>
         </div>
