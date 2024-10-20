@@ -76,7 +76,7 @@ const ViewRegisteredStudents = () => {
                 <h3>Registered Students</h3>
             </div>
             
-            <div className="course-list">
+            <div>
                 {students.filter(student => 
                 student.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || 
                 student.lastName.toLowerCase().includes(searchTerm.toLowerCase()) || 

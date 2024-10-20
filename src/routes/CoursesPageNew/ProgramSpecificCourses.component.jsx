@@ -2,6 +2,7 @@ import {React, useState, useEffect} from 'react';
 import './CoursePageNew.style.css';
 import ProgramSpecificCourseDiv from './ProgramSpecificCourseDiv.component.jsx';
 
+
 // https://ui.dev/react-router-url-parameters
 import { useParams } from 'react-router-dom';
 
@@ -39,10 +40,12 @@ const ProgramSpecificCourses = () => {
 
     return (
 
-        <div>
+        <div className="programPageContent">
             <h2>{program.department} {program.program} Courses</h2>
-    
-            <div className="course-list">
+            <div className="programDescriptionDiv">
+                <p>{program.description}</p>
+            </div>
+            <div>
                 {courses.map((course, index) => (
                     <div key = {index }>
                         <ProgramSpecificCourseDiv Course = {course}/>
@@ -50,6 +53,7 @@ const ProgramSpecificCourses = () => {
                     </div>
                         ))}
             </div>
+            <p>To register please visit the courses page</p>
         </div>
     );
 
