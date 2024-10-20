@@ -110,8 +110,10 @@ const NavBars = (props) => {
 
             <div className="navBar">
                 <ul>
+                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>
                     <li><Link to="/programsPage">Programs</Link></li>
+                    <li><Link to="/coursesPage">Courses Page</Link></li>
                     <li><Link to="/signUpPage">Sign up</Link></li>
                     <li><Link to="/logInPage">Log in</Link></li>
                 </ul>

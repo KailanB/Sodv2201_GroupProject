@@ -39,7 +39,7 @@ const AdminAddCourses = ({ onAddCourse }) => {
             )
             {
             
-                newCourse.CourseId = Date.Now();
+                newCourse.CourseId = Date.now();
                 allPrograms[i].courses.push(newCourse);
                 
                 break;
@@ -64,7 +64,7 @@ const AdminAddCourses = ({ onAddCourse }) => {
             CourseId: ''
         }); 
         
-        nav('./AdminEditCourses', { state: { course } });
+        // nav('./AdminEditCourses', { state: { course } });
     };
 
     return (
