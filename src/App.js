@@ -1,17 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 // import { BrowserRouter as Routes, Route } from 'react-router-dom';
 import './App.css';
-// import StudentProfile from './components/StudentProfile/StudentProfile.component';
-// import image from './img/BPDF_Happy.png';
-// import Header from './components/Common/Header.component.jsx';
-// import Footer from './components/Common/Footer.component.jsx';
-
-
-
-
-
-// import ContactPage from './components/ContactPage/ContactPage.component.jsx';
-// <AdminDashboard name="MyNameVariableHere" status="MyStatusAdminHere"/>
 
 import Home from './routes/Home/Home';
 import View from "./view/View";
@@ -29,6 +18,8 @@ import AdminDashboard from './routes/AdminDashboard/AdminDashboard.component.jsx
 import AdminMessagesPage from './routes/AdminMessages/AdminMessagesPage.component.jsx';
 import ViewRegisteredStudents from './routes/ViewRegisteredStudents/ViewRegisteredStudents.component.jsx';
 import CoursesPage from "./routes/CoursesPageNew/CoursesPage.component.jsx";
+import ProgramSpecificCourses from "./routes/CoursesPageNew/ProgramSpecificCourses.component.jsx";
+
 // import CoursesPage from "./routes/CoursesPageNew/CourseDiv.component.jsx";
 
 import StudentDashboard from './routes/StudentDashboard/StudentDashboard.component.jsx';
@@ -60,6 +51,7 @@ function App() {
 
           <Route path="/adminAddCourses" element={<AdminAddCourses />} />
           <Route path="/coursesPage" element={<CoursesPage />} />
+          <Route path="/coursesPage/:programParam" element={<ProgramSpecificCourses /> } />
           <Route path="/adminEditCourses" element={<AdminEditCourses />} />
           <Route path="/adminDashboard" element={<AdminDashboard />} />
           <Route path="/adminMessagesPage" element={<AdminMessagesPage />} />
