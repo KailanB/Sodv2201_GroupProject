@@ -7,10 +7,8 @@ const StudentDashboardCourseDiv = (props) => {
     return (
 
 
-        <div>
-            <h4>Course Details</h4>
-            <p><strong>Name:</strong> {Course.CourseName}</p>
-            <p><strong>Code:</strong> {Course.CourseCode}</p>
+        <div className="courseDiv">
+            <h4>Course: {Course.CourseName}{Course.CourseCode}</h4>
             <p><strong>Term:</strong> {Course.Term}</p>
             <p><strong>Start Date:</strong> {Course.StartDate}</p>
             <p><strong>End Date:</strong> {Course.EndDate}</p>
