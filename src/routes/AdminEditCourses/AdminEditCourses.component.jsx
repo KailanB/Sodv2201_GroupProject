@@ -114,7 +114,7 @@ const AdminEditCourses = () => {
                 </div>
                 <div className='form-group'>
                     <label>Description:</label>
-                    <textarea name="Description" value={editedCourse.Description} onChange={handleChange} className="standardInput" rows="4" required></textarea>
+                    <textarea name="Description" value={editedCourse.Description} onChange={handleChange} className="standardTextArea" rows="4" required></textarea>
                     <div className="button-group">
 
                     <button className="standardButton deleteButton" onClick={handleDelete}>Delete Course</button>
