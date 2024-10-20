@@ -5,11 +5,11 @@
     --accentColor2: #9a8cda;
 }
 
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-} */
+}
 
 .unique-page {
     display: flex;
@@ -21,9 +21,6 @@
     padding: 20px;
 }
 
-/* I found out that styling specified here was going into other pages styling oddly enough... */
-/* so I added the class name before the generic element. */
-/* that way it wasn't styling ALL h3's */
 .unique-page h3 {
     color: var(--accentColor1);
     margin-bottom: 20px;
@@ -78,7 +75,7 @@ label {
 }
 
 .deleteButton {
-    background-color: #ff4d4d; 
+    background-color: #de5a5a; 
     color: white;
 }
 
