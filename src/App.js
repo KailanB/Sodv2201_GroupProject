@@ -6,10 +6,11 @@ import Home from './routes/Home/Home';
 import View from "./view/View";
 import ContactPage from "./routes/ContactPage/ContactPage.component";
 import ProgramsPageMain from './routes/ProgramsPage/ProgramsPageMain.component.jsx';
+import CoursesPage from "./routes/CoursesPageNew/CoursesPage.component.jsx";
+import ProgramSpecificCourses from "./routes/CoursesPageNew/ProgramSpecificCourses.component.jsx";
 
 import LogInPage from './routes/LogInPage/LogInPage.component.jsx';
 import SignUpPage from './routes/SignUpPage/SignUpPage.component.jsx';
-
 import ProfilePage from './routes/Profile/ProfilePage.component.jsx';
 
 import AdminAddCourses from './routes/AdminAddCourses/AdminAddCourses.component.jsx';
@@ -17,10 +18,6 @@ import AdminEditCourses from './routes/AdminEditCourses/AdminEditCourses.compone
 import AdminDashboard from './routes/AdminDashboard/AdminDashboard.component.jsx';
 import AdminMessagesPage from './routes/AdminMessages/AdminMessagesPage.component.jsx';
 import ViewRegisteredStudents from './routes/ViewRegisteredStudents/ViewRegisteredStudents.component.jsx';
-import CoursesPage from "./routes/CoursesPageNew/CoursesPage.component.jsx";
-import ProgramSpecificCourses from "./routes/CoursesPageNew/ProgramSpecificCourses.component.jsx";
-
-// import CoursesPage from "./routes/CoursesPageNew/CourseDiv.component.jsx";
 
 import StudentDashboard from './routes/StudentDashboard/StudentDashboard.component.jsx';
 
@@ -47,7 +44,7 @@ function App() {
           <Route path="/signUpPage" element={<SignUpPage />} />
 
           <Route path="/profilePage" element={<ProfilePage />} />
-          <Route path="/studentDahsboard" element={<StudentDashboard />} />
+          <Route path="/studentDashboard" element={<StudentDashboard />} />
 
           <Route path="/adminAddCourses" element={<AdminAddCourses />} />
           <Route path="/coursesPage" element={<CoursesPage />} />

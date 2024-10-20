@@ -1,7 +1,6 @@
 
 
 
-
 export const GetCookieByName = (name) =>
 {
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -44,8 +43,4 @@ export const getData = (dataName) =>
 
 };
 
-        
-        
-        // myEmail = decodedCookie.substring(cookieName.length);
-        // alert(myEmail);
         

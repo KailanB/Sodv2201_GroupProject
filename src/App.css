@@ -58,16 +58,6 @@
     border: 2px solid var(--accentColor2);
 }
 
-/* .standardInput{
-
-    width: 250px;
-    height: 30px;
-    border: 2px solid var(--accentColor2);
-    border-radius: 10px;
-
-} 
-
-*/
 
 .standardInput {
     width: 70%; 

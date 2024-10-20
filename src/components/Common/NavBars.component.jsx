@@ -71,7 +71,7 @@ const NavBars = (props) => {
                         <li><Link to="/logInPage">Log in</Link></li>
                         <li><Link to="/profilePage">Profile</Link></li>
                         <li><Link to="/coursesPage">Courses Page</Link></li>
-                        <li><Link to="/studentDahsboard">Student Dashboard</Link></li>
+                        <li><Link to="/studentDashboard">Student Dashboard</Link></li>
                         <br />
                         <li><a href='#' onClick={Logout}>Logout</a></li>
                     </ul>

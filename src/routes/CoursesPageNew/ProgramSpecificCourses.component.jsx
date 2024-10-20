@@ -22,12 +22,12 @@ const ProgramSpecificCourses = () => {
         
         
         const savedProgram = savedPrograms.find(savedProgram => {
+            // get all courses belonging to related program
             return savedProgram.code === programParam;
         });
         
         setProgram(savedProgram);
         const savedCourses = [];
-        // alert(programs[0].courses[0].CourseCode);
         savedProgram.courses.forEach(course =>
                 savedCourses.push(course)  
         )
@@ -54,7 +54,6 @@ const ProgramSpecificCourses = () => {
     );
 
 };
-
 
 
 export default ProgramSpecificCourses;

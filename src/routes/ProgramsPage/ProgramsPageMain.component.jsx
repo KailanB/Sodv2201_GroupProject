@@ -6,10 +6,6 @@ import ProgramSearch from './ProgramSearch.component.jsx';
 
 const ProgramsPageMain = () => {
 
-
-    // const programs = [
-        
-    // ];
     const[programs, setPrograms] = useState([]);
 
     useEffect(() => {
@@ -18,7 +14,6 @@ const ProgramsPageMain = () => {
 
         if(programs)
         {
-            //alert(userExists.studentId);
             setPrograms([...programs]);  
         }
     }, []);

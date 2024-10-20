@@ -1,16 +1,9 @@
 import './CoursePageNew.style.css';
 import { GetCookieByName } from '../../Utilities.js';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const CourseDiv = (props) => {
 
-
-    
-    // const {fullName, email, message} = props;
     const {Course, RegisterCourse, EditCourse} = (props);
-    let navigate = useNavigate();  // Initialize navigate
-    // const {EditCourse} = (props);
-
     let userEmail = GetCookieByName("userEmail=");
     const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
     let userExists = savedUsers.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());

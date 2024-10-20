@@ -2,8 +2,6 @@ import './ProgramsPage.style.css';
 
 const ProgramSearch = () => {
 
-
-
     return (
 
         <div className='programSearch'>

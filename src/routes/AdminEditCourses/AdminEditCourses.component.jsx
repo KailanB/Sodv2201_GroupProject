@@ -65,8 +65,7 @@ const AdminEditCourses = () => {
     };
     
     const handleCancel = () => {
-        //e.preventDefault();
-        // alert("cancelled!");
+        // simply return user to previous page
         window.location.href = "/coursesPage";
     };
 

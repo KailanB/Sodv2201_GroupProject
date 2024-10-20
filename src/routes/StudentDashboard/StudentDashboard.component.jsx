@@ -36,22 +36,18 @@ const StudentDashboard = (props) => {
     }
   }, [users]);
 
-
-  
-
-
-
     
   const RemoveCourse = (code) => {
 
-    // alert(user.courses.length);
     const index = user.courses.findIndex(course => course.CourseCode === code);
     
     const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
     for(let i = 0 ; i < savedUsers.length ; i++)
     {
+      // find user within array via email
       if(savedUsers[i].email.toLowerCase() === user.email.toLowerCase())
       {
+        // splice course at index
         savedUsers[i].courses.splice(index, 1);
         localStorage.setItem('users', JSON.stringify(savedUsers));
       }
@@ -59,18 +55,14 @@ const StudentDashboard = (props) => {
         console.log("error finding user!");
       }
     }
-    
+    // splice user.course
     user.courses.splice(index, 1);
     const updatedCourses = user.courses;
+    // update courses so page immediately updates change
     setUserCourses([...updatedCourses]);
     
 
   }
-
-    // useEffect(() => {
-
-      
-    // }, [users]);
 
   return (
     <div>

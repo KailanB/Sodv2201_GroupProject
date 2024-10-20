@@ -6,9 +6,6 @@ import SignUpForm from './SignUpForm.component.jsx';
 
 const SignUpPage = () => {
 
-
-    // localStorage.removeItem('users');
-
     const[users, setUsers] = useState([]);
 
     // for using local storage https://www.freecodecamp.org/news/how-to-use-localstorage-with-react-hooks-to-set-and-get-items/
@@ -38,14 +35,11 @@ const SignUpPage = () => {
 
     const addUser = (user) => {
 
-
-        
         // searches the local storage for the email that is attempting to be registered
         let userExists = users.find(savedUser => savedUser.email.toLowerCase() === user.email.toLowerCase())
         // if no such user exists we can go ahead and add the user to our storage
         if(!userExists)
         {
-            // alert(user);
             // create new unqiue studentId for new user
             user.studentId = Date.now();
             user.email.toLowerCase();
@@ -59,27 +53,13 @@ const SignUpPage = () => {
       
     };
 
-    return (
-       
+    return (   
         <div>
             <div className='signUpDiv'>
                 <h3>Sign up here!</h3>
                 <SignUpForm onAddUser={addUser}/>
-                <div>
-                    {/* <UserList users={users}/> */}
-                    {/* {JSON.parse(localStorage.getItem('users')).map((user, index) => (
-                            <li key={index}>
-                                Name: {user.firstName} {user.lastName} <br />
-                                Email: {user.email} <br />
-                                Password: {user.password} <br />
-                            </li>
-        
-                        ))} */}
-                </div>
             </div>
         </div>
-        
-
 
     );
 

@@ -10,11 +10,7 @@ const ProgramDiv = (props) => {
         window.location.href ="/coursesPage/" + program;
     }
 
-   
-
-
     return (
-
         <div className="programDiv" onClick={() => {
             NavigateToProgramCourses(program.code)}}>
             <h2>{program.department}</h2>

@@ -4,12 +4,8 @@ import ProfileDiv from './ProfileDiv.component.jsx';
 import { GetCookieByName } from '../../Utilities.js';
 
 function ProfilePage() {
-
-
-    
+   
     const[user, setUser] = useState([]);
-
-    
 
     useEffect(() => {
 
@@ -20,12 +16,9 @@ function ProfilePage() {
 
         if(userExists)
         {
-            //alert(userExists.studentId);
             setUser(userExists);  
         }
-    }, []);
-
-    
+    }, []);  
 
     return (
         <div>

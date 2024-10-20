@@ -3,12 +3,7 @@ import './StudentDashboard.style.css';
 
 const StudentDashboardCourseDiv = (props) => {
 
-
-    
-    // const {fullName, email, message} = props;
     const {Course, RemoveCourse} = (props);
-
-
     return (
 
 

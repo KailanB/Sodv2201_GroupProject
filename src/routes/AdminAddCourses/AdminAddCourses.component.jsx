@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './AdminAddCourses.style.css';
-// import '../../AdminCourseManager.js';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 //adding 
 const AdminAddCourses = ({ onAddCourse }) => {
@@ -48,19 +47,6 @@ const AdminAddCourses = ({ onAddCourse }) => {
         }
         localStorage.setItem('programs', JSON.stringify(allPrograms));
 
-        // alert(allPrograms[0].courses[0].Department);
-        //localStorage.setItem('courses', JSON.stringify(allCourses));
-
-        // this might have issues may need to re-write it.
-        //const allCourses = JSON.parse(localStorage.getItem('courses')) || [];
-        
-        //allCourses.push(newCourse);
-        //localStorage.setItem('courses', JSON.stringify(allCourses));
-        // alert(allCourses[0].CourseName);
-        
-
-        // I don't think we need this one
-        //setCourse(newCourse);
     };
 
     const handleSubmit = (e) => {

@@ -3,9 +3,6 @@ import './SignUpPage.style.css';
 
 const SignUpForm = ({onAddUser}) => {
 
-    // const {Title} = props;
-    
-
     const[formData, setFormData] = useState({
         firstName: '',
         lastName: '',

@@ -4,9 +4,6 @@ import './StudentDashboard.style.css';
 
 const StudentDashboardDiv = (props) => {
 
-
-    
-    // const {fullName, email, message} = props;
     const {user} = (props);
 
 

@@ -63,17 +63,6 @@ label {
     border-color: var(--accentColor1); /* Change border on focus */
 }
 
-/* textarea {
-    width: 100%; /* Full width for textarea */
-    /* border: 2px solid var(--accentColor2);
-    border-radius: 10px;
-    padding: 5px;
-    resize: none; /* Prevent resizing */
-/* }
-
-textarea:focus {
-    border-color: var(--accentColor1); /* Change border on focus */
-
 
 .button-group {
     display: flex;
