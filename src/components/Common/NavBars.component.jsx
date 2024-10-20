@@ -47,7 +47,6 @@ const NavBars = (props) => {
                         <li><Link to="/profilePage">Profile</Link></li>
                         <li><Link to="/viewRegisteredStudents">View Registered Students</Link></li>
                         <li><Link to="/adminAddCourses">Add Courses</Link></li>
-                        <li><Link to="/adminEditCourses">Edit Courses</Link></li>
                         <li><Link to="/adminDashboard">Dashboard</Link></li>
                         <li><Link to="/adminMessagesPage">Messages</Link></li>
                         <li><Link to="/coursesPage">Courses Page</Link></li>
@@ -98,7 +97,6 @@ const NavBars = (props) => {
                     <li><Link to="/profilePage">Profile</Link></li>
                     <li><Link to="/viewRegisteredStudents">View Registered Students</Link></li>
                     <li><Link to="/adminAddCourses">Add Courses</Link></li>
-                    <li><Link to="/adminEditCourses">Edit Courses</Link></li>
                     <li><Link to="/adminDashboard">Dashboard</Link></li>
                     <li><Link to="/adminMessagesPage">Messages</Link></li>
                     <li><Link to="/coursesPage">Courses Page</Link></li>
