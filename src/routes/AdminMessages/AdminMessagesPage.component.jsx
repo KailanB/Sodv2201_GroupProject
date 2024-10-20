@@ -13,7 +13,7 @@ const AdminMessagesPage = () => {
     return (
 
         <div>
-            <h2>Info Requests</h2>
+            <h2>INFOMATION REQUESTS</h2><br></br>
             {messages.map((message, index) => (
                 <div key={index}>
                     <MessageDiv fullName={message.fullName} email={message.email} message={message.message}/>
