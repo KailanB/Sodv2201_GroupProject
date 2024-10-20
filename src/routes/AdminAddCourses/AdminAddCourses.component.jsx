@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AdminAddCourses.style.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-//adding 
+
 const AdminAddCourses = ({ onAddCourse }) => {
     const [course, setCourse] = useState({
         CourseName: '',
@@ -33,12 +33,12 @@ const AdminAddCourses = ({ onAddCourse }) => {
        
         for(let i = 0 ; i < allPrograms.length ; i++)
         {
-             // find program associated with course being added within program array
+            
             if(allPrograms[i].department.toLowerCase() === newCourse.Department.toLowerCase() && 
                allPrograms[i].program.toLowerCase() === newCourse.Program.toLowerCase() 
             )
             {
-                // push new course into program array
+            
                 newCourse.CourseId = Date.Now();
                 allPrograms[i].courses.push(newCourse);
                 
@@ -51,7 +51,7 @@ const AdminAddCourses = ({ onAddCourse }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleAddCourse(course); // Sending data to AdminCourseManager component
+        handleAddCourse(course); 
         setCourse({
             CourseName: '',
             CourseCode: '',
@@ -62,9 +62,8 @@ const AdminAddCourses = ({ onAddCourse }) => {
             Program: '',
             Description: '',
             CourseId: ''
-        }); // Clear the form
-
-        // Redirect to the edit page with course details after adding
+        }); 
+        
         nav('./AdminEditCourses', { state: { course } });
     };
 
