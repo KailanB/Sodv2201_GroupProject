@@ -5,10 +5,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 import { GetCookieByName } from '../../Utilities.js';
 
-// import {useParams} from 'react-router-dom';
-
-
-const CoursesPage = (props) => {
+const CoursesPage = () => {
 
     const [courses, setCourses] = useState([]);
     const[user, setUser] = useState([]);
@@ -16,30 +13,24 @@ const CoursesPage = (props) => {
     // this seems to work better to pull from local storage 
     // setting use state to pull from local storage
     // https://www.reddit.com/r/react/comments/xqbky5/usestate_overwrites_localstorage/
-    const [programs, setPrograms] = useState([]);
+    // const [programs, setPrograms] = useState([]);
 
 
     const [searchTerm, setSearchTerm] = useState('');
 
     const nav = useNavigate(); // Initialize useNavigate
 
-    // const { programCourses } = useParams();
-
-    const {program} = props;
-    
-
     useEffect(() => { 
 
-        
+        // since we will not be displaying programs here
+        // and since there is a delay to updating a hook
+        // it was better to just save this in a const and collect courses from it
         const savedPrograms = JSON.parse(localStorage.getItem("programs")) || [];
-        console.log("Saved Programs ");
-        console.log(savedPrograms);
+
         // try using spread operator ... to see if it helps with the order of things    
-        setPrograms([...savedPrograms]);   
-        
+        // setPrograms([...savedPrograms]);   
         
         const savedCourses = [];
-        // alert(programs[0].courses[0].CourseCode);
         savedPrograms.forEach(program => 
             program.courses.forEach(course =>
                 savedCourses.push(course)  
@@ -47,18 +38,14 @@ const CoursesPage = (props) => {
         )
         setCourses([...savedCourses]);
 
-        // console.log(programs[0].courses);
         let userEmail = GetCookieByName("userEmail=");
     
         const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
         let userExists = savedUsers.find(savedUser => savedUser.email.toLowerCase() === userEmail.toLowerCase());
-        
-        // console.log("after getting user data");
+
         if(userExists)
         {
             setUser(userExists); 
-                   
-            
         }
        
 
@@ -89,17 +76,10 @@ const CoursesPage = (props) => {
 
     const RegisterCourse = (Id) => {
 
-
-        // console.log(user.courses);
-        // console.log(user.courses.length);
         if(user.courses.length < 5)
         {
-
-            
             // check if user is registered for courses and if so
             // if they are already registered for this course by searching their course array for a match
-            
-            
             if((user.courses.length > 0) && user.courses.some(course => course.CourseId === Id))
             {
                 alert("Already registered for this course");
@@ -116,8 +96,6 @@ const CoursesPage = (props) => {
                 {
                     user.courses.push(course);
                     // add course to user array
-                
-                
                     // then get local storage data and update it with newly added course
                     const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
                     for(let i = 0; i < savedUsers.length ; i++)
@@ -129,6 +107,10 @@ const CoursesPage = (props) => {
                             savedUsers[i].courses.push(course)
                         }
                     }
+                    // remove course from array
+                    const newCourses = courses.filter(course => course.CourseId != Id);
+                    alert("Successfuly registered for " + course.CourseName + ":" +course.CourseCode);
+                    setCourses([...newCourses]);
                     // save everything
                     localStorage.setItem('users', JSON.stringify(savedUsers));
                 }
@@ -191,19 +173,6 @@ const CoursesPage = (props) => {
                     ))}
         </div>
     </div>
-
-
-
-
-        // <div>
-        //     {messages.map((message, index) => (
-        //         <div key={index}>
-        //             <CourseDiv fullName={message.fullName} email={message.email} message={message.message}/>
-        //             <br />
-        //         </div>
-                
-        //     ))}
-        // </div>
 
     );
 };
