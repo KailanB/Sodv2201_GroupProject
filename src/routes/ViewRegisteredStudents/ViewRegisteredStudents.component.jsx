@@ -71,6 +71,7 @@ const ViewRegisteredStudents = () => {
                     </div>
                 </div>
             </div>
+            <br></br>
             <div>
                 <h3>Registered Students</h3>
             </div>
