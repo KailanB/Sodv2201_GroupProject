@@ -29,11 +29,6 @@
     margin: 5px;
 }
 
-.course-list {
-    width: 80%;
-    margin-top: 20px;
-}
-
 .course-item {
     background-color: var(--mainContentColor2);
     padding: 15px;
@@ -61,4 +56,32 @@
 
 .course-details-modal h4 {
     margin-bottom: 15px;
+}
+
+
+.courseDiv {
+
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--accentColor1);
+    background-color: var(--mainContentColor2);
+    width: min(600px, 90vw);
+}
+
+/* Styling for ProgramSpecific Courses Page */
+.programDescriptionDiv {
+    margin: 10px;
+    padding: 10px 0px;
+    width: min(90vw, 600px);
+    margin: auto;
+}
+
+.programPageContent {
+    
+    padding: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background: red; */
 }
