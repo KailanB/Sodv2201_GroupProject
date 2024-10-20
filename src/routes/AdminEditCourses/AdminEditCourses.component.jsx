@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './AdminEditCourses.style.css';
-import { useLocation } from 'react-router-dom'; // Import useLocation to get the course data
+import { useLocation } from 'react-router-dom'; 
 
 const AdminEditCourses = () => {
     const location = useLocation();
@@ -22,7 +22,7 @@ const AdminEditCourses = () => {
         }));
         // alert(editedCourse.CourseCode);
     };
-//added 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         
@@ -35,7 +35,7 @@ const AdminEditCourses = () => {
                 {
                     // update local storage data array at index of matching id with new course data
                     program.courses[index] = editedCourse;
-                    // save updated data to local storage
+                    
                     localStorage.setItem('programs', JSON.stringify(savedPrograms));
                    
                 }
@@ -48,7 +48,7 @@ const AdminEditCourses = () => {
 
         alert("Course deleted!");
         const savedPrograms = JSON.parse(localStorage.getItem("programs")) || [];
-         // search program course data to find course with matching id
+         
         savedPrograms.forEach(program => 
             program.courses.forEach((localStorageCourse, index) => {
 
@@ -56,7 +56,7 @@ const AdminEditCourses = () => {
                 {
                     // delete from local storage data array at index of matching id
                     program.courses.splice(index, 1);
-                    // save updated array to local storage
+                    
                     localStorage.setItem('programs', JSON.stringify(savedPrograms));
                 }
             })
@@ -65,7 +65,7 @@ const AdminEditCourses = () => {
     };
     
     const handleCancel = () => {
-        // simply return user to previous page
+        
         window.location.href = "/coursesPage";
     };
 
@@ -121,7 +121,6 @@ const AdminEditCourses = () => {
                     <button className="standardButton cancelButton" onClick={handleCancel}>Cancel</button>
                     <button type="submit" className="standardButton saveButton" onClick={handleSubmit}>Save Changes</button>
 
-                    {/* type="submit" */}
                 </div>
                 </div>
             </form>
