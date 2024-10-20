@@ -10,11 +10,6 @@ const CoursesPage = () => {
     const [courses, setCourses] = useState([]);
     const[user, setUser] = useState([]);
 
-    // this seems to work better to pull from local storage 
-    // setting use state to pull from local storage
-    // https://www.reddit.com/r/react/comments/xqbky5/usestate_overwrites_localstorage/
-    // const [programs, setPrograms] = useState([]);
-
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -22,13 +17,7 @@ const CoursesPage = () => {
 
     useEffect(() => { 
 
-        // since we will not be displaying programs here
-        // and since there is a delay to updating a hook
-        // it was better to just save this in a const and collect courses from it
-        const savedPrograms = JSON.parse(localStorage.getItem("programs")) || [];
-
-        // try using spread operator ... to see if it helps with the order of things    
-        // setPrograms([...savedPrograms]);   
+        const savedPrograms = JSON.parse(localStorage.getItem("programs")) || []; 
         
         const savedCourses = [];
         savedPrograms.forEach(program => 
@@ -53,20 +42,14 @@ const CoursesPage = () => {
 
 
     useEffect(() => {
-
-        
-         // if user logged in is a student filter to only display courses available for the users department and program    
+  
         if(user.status === "Student")
         {
-            // console.log(user.status);
-            // console.log(courses);
-            // I don't understand what is going on here
+
             const savedCourses = courses.filter(course => (
             course.Department.toLowerCase() === user.department.toLowerCase()) &&
             (course.Program.toLowerCase() === user.program.toLowerCase()) 
             )
-            // set courses to filtered options for displaying
-            // console.log(savedCourses);
             setCourses(savedCourses);
         }
 
@@ -86,8 +69,7 @@ const CoursesPage = () => {
             }
             else
             {
-                // if not registered for the course
-                // find the course via the code
+
                 const course = courses.find(course => 
                     course.CourseId === Id
                 )
@@ -95,15 +77,14 @@ const CoursesPage = () => {
                 if(course)
                 {
                     user.courses.push(course);
-                    // add course to user array
-                    // then get local storage data and update it with newly added course
+                
                     const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
                     for(let i = 0; i < savedUsers.length ; i++)
                     {
-                        // find matching user in array
+                        
                         if(savedUsers[i].email.toLowerCase() === user.email.toLowerCase())
                         {
-                            // add course to their courses
+                            
                             savedUsers[i].courses.push(course)
                         }
                     }
